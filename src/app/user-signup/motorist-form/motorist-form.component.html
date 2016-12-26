@@ -1,4 +1,25 @@
 <p>
   motorist-form works!
 </p>
-<!-- TODO: Motorist - Sign up Form -->
+<h1>Signup as Motorist</h1>
+<!-- Motorist - Sign up Form -->
+<form class="">
+    <h3>Personal Information: </h3>
+    <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="motorist.email_address"> <br>
+    <input type="password" name="password" value="" placeholder="Password" [(ngModel)]="motorist.password"> <br>
+    <input type="text" name="family_name" value="" placeholder="Family Name" [(ngModel)]="motorist.family_name"> <br>
+    <input type="text" name="given_name" value="" placeholder="Given Name" [(ngModel)]="motorist.given_name"> <br>
+    <input type="text" name="username" value="" placeholder="Username" [(ngModel)]="motorist.username"> <br>
+    <input type="text" name="contact_number" value="" placeholder="Contact Number" [(ngModel)]="motorist.contact_number"> <br>
+    <input type="text" name="address" value="" placeholder="Address" [(ngModel)]="motorist.address"> <br>
+    <input type="text" name="license_number" value="" placeholder="License Number" [(ngModel)]="motorist.license_number"> <br>
+
+    <br>
+
+    <h3>Vehicle Information: </h3>
+    <input type="text" name="vehicle_type" value="" placeholder="Vehicle Type" [(ngModel)]="motorist.vehicle_information_vehicle_type"> <br>
+    <input type="text" name="vehicle_information" value="" placeholder="Model Year" [(ngModel)]="motorist.vehicle_information_model_year"> <br>
+    <input type="text" name="vehicle_plate_number" value="" placeholder="Plate Number" [(ngModel)]="motorist.vehicle_information_plate_number"> <br>
+
+    <button (click)="onSignup()" name="button">Signup</button>
+</form>
