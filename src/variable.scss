@@ -1,0 +1,426 @@
+$wht: #fff;
+$blk: #363635;
+$gry: rgba(0,0,0,0.4);
+$grn: #388E3C;
+$red: #D32F2F;
+$vlt: #7B1FA2;
+$blu: #2196F3;
+$fbk: #3b5998;
+$ggl: #dd4b39;
+$twt: #55acee;
+$ylw: #FBC02D;
+$lylw: #FFEB3B;
+$brwn: #795548;
+$slvr: #9E9E9E;
+
+@mixin main-height{
+		height: calc(100% - 55px);
+}
+
+//box properties mixin
+
+@mixin fit-important{
+	width: 100% !important;
+}
+@mixin fit{
+	width: 100% !important;
+}
+@mixin overflow-y-auto{
+	overflow-y: auto;
+}
+@mixin hidden{
+	display: none;
+}
+@mixin no-border{
+	border: 0;
+}
+@mixin no-padding{
+	padding: 0;
+}
+@mixin no-margin{
+	margin: 0;
+}
+@mixin no-margin-center{
+	margin: 0 auto;
+}
+@mixin vertical-align-middle{
+	vertical-align: middle;
+}
+@mixin pull-right{
+	float: right;
+}
+@mixin pull-left{
+	float: left;
+}
+
+// text mixin
+
+@mixin text-center{
+	text-align: center;
+}
+@mixin text-thin{
+	font-weight: 300;
+}
+@mixin text-light{
+	font-weight: 400;
+}
+@mixin text-regular{
+	font-weight: 500;
+}
+@mixin text-medium{
+	font-weight: 600;
+}
+@mixin text-regular{
+	font-weight: 500;
+}
+@mixin text-red{
+	color: $red;
+}
+@mixin text-green{
+	color: $grn;
+}
+@mixin text-violet{
+	color: $vlt;
+}
+@mixin text-blue{
+	color: $blu;
+}
+@mixin text-white{
+	color: $wht;
+}
+@mixin text-grey{
+	color: $gry;
+}
+@mixin text-yellow{
+	color: $ylw;
+}
+@mixin text-lyellow{
+	color: $lylw;
+}
+@mixin text-black{
+	color: $blk;
+}
+@mixin text-silver{
+	color: $slvr;
+}
+@mixin text-bronze{
+	color: $brwn;
+}
+
+//background mixin
+
+@mixin background-transparent{
+	background: none;
+}
+@mixin background-red{
+	background: $red;
+}
+@mixin background-green{
+	background: $grn;
+}
+@mixin background-violet{
+	background: $vlt;
+}
+@mixin background-blue{
+	background: $blu;
+}
+@mixin background-grey{
+	background: $gry;
+}
+@mixin background-white{
+	background: $wht;
+}
+@mixin background-yellow{
+	background: $ylw;
+}
+@mixin background-lyellow{
+	background: $lylw;
+}
+
+
+//card mixin
+
+@mixin card{
+	overflow: hidden;
+	width: 400px;
+	margin: 15px auto;
+	border-radius: 3px;
+}
+@mixin card-clickable{
+	cursor: pointer;
+}
+@mixin card-float{
+	box-shadow: 0px 2px 2px rgba(0,0,0,0.20);
+}
+@mixin card-flat{
+	border: 1px solid $gry;
+}
+@mixin card-squeeze{
+	padding: 30px !important;
+}
+
+//button mixin
+
+@mixin buttonholder{
+	margin: 15px 0;
+}
+@mixin buttonholder-bottom-left{
+	margin: 0 !important;
+	position: absolute;
+	bottom: 5px;
+	left: 10px;
+}
+@mixin buttonholder-bottom-center{
+	margin: 0 auto!important;
+	position: absolute;
+	bottom: 5px;
+	left: 0;
+	right: 0;
+	z-index: 100;
+}
+@mixin buttonholder-bottom-right{
+	margin: 0 !important;
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+}
+@mixin button{
+	&:hover{
+		cursor: pointer;
+	}
+	outline: none;
+	padding: 10px;
+	overflow: hidden;
+}
+@mixin button-float{
+	box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
+}
+@mixin button-fit{
+	width: 100%;
+}
+@mixin button-curve{
+	border-radius: 3px;
+}
+@mixin button-circle{
+	border-radius: 100%;
+	padding: 17px  16px;
+}
+@mixin button-facebook{
+	background: $fbk;
+}
+@mixin button-google{
+	background: $ggl;
+}
+@mixin button-twitter{
+	background: $twt;
+}
+
+
+//animate mixin
+
+@mixin animate-slide-up{
+	animation: slide-up .2s linear;
+	@keyframes slide-up{
+		from{
+			opacity: 0;
+			margin-top: 30px;
+		}
+		to{
+			opacity: 1;
+			margin-top: 15px;
+		}
+	}
+}
+
+@mixin animate-expand{
+	position: relative;
+	animation: expand 1s linear infinite;
+	@keyframes expand{
+		0%{
+			padding: 0px;
+		}
+		50%{
+			padding: 5px;
+		}
+		100%{
+			padding: 0px;
+		}
+	}
+}
+
+@mixin animate-appear{
+	animation: fade-in 0.2s linear;
+	@keyframes fade-in{
+		from{
+			opacity: 0;
+		}
+		to{
+			opacity: 1;
+		}
+	}
+}
+
+@mixin animate-bounce-left{
+	animation: bounceLeft 1s ease infinite;
+	@keyframes bounceLeft{
+		0%{
+			padding-left: 0px;
+		}
+		50%{
+			padding-left: 5px;
+		}
+		100%{
+			padding-left: 0px;
+		}
+	}
+}
+@mixin animate-bounce{
+	position: relative;
+	animation: bounce 1s ease infinite;
+	@keyframes bounce{
+		0%{
+			bottom: 0px;
+		}
+		50%{
+			bottom: 5px;
+		}
+		100%{
+			bottom: 0px;
+		}
+	}
+}
+@mixin animate-jump{
+	animation: jump 0.4s ease infinite;
+	animation-delay: 3s;
+	@keyframes jump{
+		0%{
+			bottom: 0px;
+		}
+		50%{
+			bottom: 5px;
+		}
+		100%{
+			bottom: 0px;
+		}
+	}
+}
+
+//overlay-container
+
+@mixin overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0,0.8);
+}
+
+//input
+@mixin 	input{
+	outline: none;
+	width: 100%;
+	padding: 10px;
+	font-size: 20px;
+	border: 1px solid rgba(0,0,0,0.05);
+	text-align: left !important;
+	color: $blk;
+	font-weight: 600;
+	border-radius: 5px;
+	resize: none;
+	border-style: solid;
+	&:focus{
+		border: 1px solid $blu;
+	}
+	&.error{
+		border: 1px solid $red;
+		@include text-red;
+	}
+}
+
+@mixin input-group{
+	&.left-label{
+		display: flex;
+		flex-direction: row;
+		label, button{
+			flex-grow: 1;
+			padding: 10px;
+			font-size: 20px;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+			border-top: 1px solid rgba(0,0,0,0.05);
+			border-left: 1px solid rgba(0,0,0,0.05);
+			border-bottom: 1px solid rgba(0,0,0,0.05);
+		}
+		input{
+			flex-grow: 2;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+	}
+	&.right-label{
+		display: flex;
+		flex-direction: row;
+		label, button{
+			flex-grow: 1;
+			padding: 10px;
+			font-size: 20px;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+			border-top: 1px solid rgba(0,0,0,0.05);
+			border-right: 1px solid rgba(0,0,0,0.05);
+			border-bottom: 1px solid rgba(0,0,0,0.05);
+			border-left: none;
+		}
+		input{
+			flex-grow: 2;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+	}
+
+}
+
+
+
+
+
+//list
+
+@mixin list{
+	box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+	border-radius: 3px;
+	list-style: none;
+}
+
+@mixin list-body{
+	display: flex;
+	flex-direction: row;
+	padding: 5px 20px;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	&::last-child{
+		border-bottom: noone;
+	}
+}
+
+//img mixin
+
+@mixin img{
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+	img{
+		width: 100%;
+		height: auto;
+	}
+}
+@mixin img-curve{
+	border-radius: 15px;
+}
+@mixin img-circle{
+	border-radius: 100%;
+}
