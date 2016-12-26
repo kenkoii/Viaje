@@ -33,6 +33,7 @@ const myFirebaseAuthConfig = {
     MotoristFormComponent,
     SafezoneFormComponent,
     NavbarComponent
+
   ],
   imports: [
     BrowserModule,
