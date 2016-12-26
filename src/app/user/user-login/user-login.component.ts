@@ -19,8 +19,5 @@ export class UserLoginComponent implements OnInit {
     this.userService.userLogin(this.email_address, this.password);
   }
 
-  onLogout(){
-    this.userService.userLogout();
-  }
 
 }

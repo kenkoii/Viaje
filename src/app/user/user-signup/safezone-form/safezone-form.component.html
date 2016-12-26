@@ -2,14 +2,16 @@
   safezone-form works!
 </p>
 <!-- Safezone - Sign up Form -->
-
+<h1>Signup as Safezone</h1>
 <form class="">
 
     <h3>Contact Information: </h3>
+    <input type="text" name="username" value="" placeholder="Username" [(ngModel)]="safezone.username"> <br>
+    <input type="password" name="password" value="" placeholder="Password" [(ngModel)]="safezone.password"> <br>
+    <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="safezone.email_address"> <br>
     <input type="text" name="shop_name" value="" placeholder="Shop Name" [(ngModel)]="safezone.shop_name"> <br>
     <input type="text" name="owner" value="" placeholder="Owner" [(ngModel)]="safezone.owner"> <br>
-    <input type="text" name="address" value="" placeholder="Address" [(ngModel)]="safezone.address">
-    <input type="text" name="email_address" value="" placeholder="Email Address" [(ngModel)]="safezone.email_address"> <br>
+    <input type="text" name="address" value="" placeholder="Address" [(ngModel)]="safezone.address"> <br>
     <input type="text" name="contact_number" value="" placeholder="Contact Number" [(ngModel)]="safezone.contact_number"> <br>
 
     <br>

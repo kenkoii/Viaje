@@ -35,13 +35,14 @@ export class MotoristFormComponent implements OnInit {
               email_address: this.motorist.email_address,
               contact_number: this.motorist.contact_number,
               address: this.motorist.address,
+              type: 'motorist',
               license_number: this.motorist.license_number,
               vehicle_information_vehicle_type: this.motorist.vehicle_information_vehicle_type,
               vehicle_information_model_year: this.motorist.vehicle_information_model_year,
               vehicle_information_plate_number: this.motorist.vehicle_information_plate_number
           };
 
-          const users = this.af.database.list('users/motorists');
+          const users = this.af.database.list('users');
           users.push(user_motorist);
 
       }).catch(

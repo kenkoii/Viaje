@@ -1,7 +1,7 @@
 <p>
   user-login works!
 </p>
-<div *ngIf="!userService.UserAuthState">
+<div>
     <form class="">
       <h3>Sign in: </h3>
         <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="email_address"> <br>
@@ -9,8 +9,4 @@
         <button (click)="onLogin()" name="button">Signin</button>
     </form>
     or sign up <a routerLink="/signup">here</a>
-</div>
-
-<div *ngIf="userService.UserAuthState">
-    <a (click)="onLogout()">Logout</a>
 </div>

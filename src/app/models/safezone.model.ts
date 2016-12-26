@@ -4,6 +4,8 @@ export class Safezone {
 
     public shop_name: string;
     public owner: string;
+    public username: string;
+    public password: string;
     public address: string;
     public email_address: string;
     public contact_number: string
