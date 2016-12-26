@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Motorist } from '../../models/motorist.model';
+import { Motorist } from '../../../models/motorist.model';
 import { AngularFire } from 'angularfire2';
 
 @Component({

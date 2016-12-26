@@ -6,12 +6,15 @@ import { ROUTING }  from './app.routes';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
+import { AuthGuard } from './authguard.service';
+import { UserService } from './user.service';
+
 import { AppComponent } from './app.component';
 import { UserSignupComponent } from './user/user-signup/user-signup.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 
-import { MotoristFormComponent } from './user-signup/motorist-form/motorist-form.component';
-import { SafezoneFormComponent } from './user-signup/safezone-form/safezone-form.component';
+import { MotoristFormComponent } from './user/user-signup/motorist-form/motorist-form.component';
+import { SafezoneFormComponent } from './user/user-signup/safezone-form/safezone-form.component';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { MapComponent } from './map/map.component';
@@ -58,7 +61,7 @@ const myFirebaseAuthConfig = {
       apiKey: 'AIzaSyBAe8thTIIikNvgLp7DDLNK0OeFOUyLf9o'
     })
   ],
-  providers: [],
+  providers: [UserService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

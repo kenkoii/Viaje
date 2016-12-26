@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { FirebaseAuth, FirebaseAuthState } from 'angularfire2';
 import {Router} from '@angular/router';
 
 @Injectable()
 export class UserService {
-  public UserAuthState: any;
+  public UserAuthState: FirebaseAuthState;
   constructor(private http: Http, public af: AngularFire,  private router: Router) {
     this.af.auth.subscribe(
               auth => {
@@ -26,6 +27,14 @@ export class UserService {
           provider: AuthProviders.Password,
           method: AuthMethods.Password,
         });
+  }
+
+  userLogout(){
+    this.af.auth.logout();
+  }
+
+  isLoggedIn(){
+    return this.UserAuthState?true:false;
   }
 
 }
