@@ -9,7 +9,7 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 export class AdminHomeComponent implements OnInit {
   motorists: FirebaseListObservable<any>;
     constructor(af: AngularFire) {
-      this.motorists = af.database.list('/users/motorist');
+      this.motorists = af.database.list('/users/motorists');
   }
 
   ngOnInit() {
