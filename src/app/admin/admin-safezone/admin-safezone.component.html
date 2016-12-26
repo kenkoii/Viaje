@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Contact No.</th>
+      <th>Owner</th>
+      <th>Service Type</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let safezone of safezones | async">
+      <td>{{safezone.shop_name}}</td>
+      <td>{{safezone.address}}</td>
+      <td>{{safezone.contact_number}}</td>
+      <td>{{safezone.owner}}</td>
+      <td>{{safezone.service_information_type}}</td>
+      <td>Location(coordinates)</td>
+    </tr>
+  </tbody>
+</table>

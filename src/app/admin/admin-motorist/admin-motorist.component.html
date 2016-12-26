@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Name</th>
+      <th>Contact No.</th>
+      <th>Address</th>
+      <th>License No.</th>
+      <th>Plate No.</th>
+      <th>Type</th>
+      <th>Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let motorist of motorists | async">
+      <td>{{motorist.username}}</td>
+      <td>{{motorist.given_name + ' ' + motorist.family_name}}</td>
+      <td>{{motorist.contact_number}}</td>
+      <td>{{motorist.address}}</td>
+      <td>License No. here</td>
+      <td>{{motorist.vehicle_information_plate_number}}</td>
+      <td>{{motorist.vehicle_information_vehicle_type}}</td>
+      <td>{{motorist.vehicle_information_model_year}}</td>
+    </tr>
+  </tbody>
+</table>
