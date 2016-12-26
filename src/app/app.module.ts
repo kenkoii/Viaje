@@ -4,13 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ROUTING }  from './app.routes';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
-import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import { MotoristFormComponent } from './user-signup/motorist-form/motorist-form.component';
 import { SafezoneFormComponent } from './user-signup/safezone-form/safezone-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MapComponent } from './map/map.component';
+
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminMotoristComponent } from './admin/admin-motorist/admin-motorist.component';
+import { AdminSafezoneComponent } from './admin/admin-safezone/admin-safezone.component';
+import { AdminNotificationComponent } from './admin/admin-notification/admin-notification.component';
 
 
 const myFirebaseConfig = {
@@ -32,14 +38,21 @@ const myFirebaseAuthConfig = {
     UserSignupComponent,
     MotoristFormComponent,
     SafezoneFormComponent,
-    NavbarComponent
+    NavbarComponent,
+    MapComponent,
+    AdminMotoristComponent,
+    AdminSafezoneComponent,
+    AdminNotificationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ROUTING,
-    AngularFireModule.initializeApp(myFirebaseConfig, myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(myFirebaseConfig, myFirebaseAuthConfig),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBAe8thTIIikNvgLp7DDLNK0OeFOUyLf9o'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
