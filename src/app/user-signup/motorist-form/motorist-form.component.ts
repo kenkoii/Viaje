@@ -21,7 +21,7 @@ export class MotoristFormComponent implements OnInit {
 
       //Call firebase createuser
       this.af.auth.createUser({
-          email: this.motorist.username,
+          email: this.motorist.email_address,
           password: this.motorist.password
       }).then(
           (success) => {
@@ -29,16 +29,19 @@ export class MotoristFormComponent implements OnInit {
 
           //Then push other fields to firebase real time DB.
           let user_motorist = {
+              username: this.motorist.username,
               family_name: this.motorist.family_name,
               given_name: this.motorist.given_name,
               email_address: this.motorist.email_address,
               contact_number: this.motorist.contact_number,
               address: this.motorist.address,
+              license_number: this.motorist.license_number,
               vehicle_information_vehicle_type: this.motorist.vehicle_information_vehicle_type,
-              vehicle_information_model_year: this.motorist.vehicle_information_model_year
+              vehicle_information_model_year: this.motorist.vehicle_information_model_year,
+              vehicle_information_plate_number: this.motorist.vehicle_information_plate_number
           };
 
-          const users = this.af.database.list('users/motorist');
+          const users = this.af.database.list('users/motorists');
           users.push(user_motorist);
 
       }).catch(
