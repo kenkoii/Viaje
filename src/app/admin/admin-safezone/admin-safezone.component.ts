@@ -9,7 +9,12 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 export class AdminSafezoneComponent implements OnInit {
   safezones: FirebaseListObservable<any>;
     constructor(af: AngularFire) {
-      this.safezones = af.database.list('/users/safezones');
+      this.safezones = af.database.list('/users', {
+        query: {
+          orderByChild: 'type',
+          equalTo: 'safezone'
+        }
+      });
   }
   ngOnInit() {
   }
