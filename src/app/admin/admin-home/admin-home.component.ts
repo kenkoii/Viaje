@@ -15,6 +15,7 @@ export class AdminHomeComponent implements OnInit {
         equalTo: 'motorist'
       }
     });
+    console.log(this.motorists)
   }
 
   ngOnInit() {

@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 @Injectable()
 export class UserService {
   public UserAuthState: FirebaseAuthState;
+  public User: any;
   constructor(private http: Http, public af: AngularFire,  private router: Router) {
     this.af.auth.subscribe(
               auth => {
@@ -36,5 +37,7 @@ export class UserService {
   isLoggedIn(){
     return this.UserAuthState?true:false;
   }
+
+
 
 }
