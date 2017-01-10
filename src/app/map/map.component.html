@@ -1,10 +1,11 @@
-<sebm-google-map [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
-  <sebm-google-map-marker *ngFor="let item of items | async" [latitude]="item.lat" [longitude]="item.lng" [visible]="true" [iconUrl]="getIcon(item.type)">
-    <sebm-google-map-info-window>
-      <h3>{{item.title}}</h3>
-      <hr>
-      {{item.description}}
-    </sebm-google-map-info-window>
-
-  </sebm-google-map-marker>
-</sebm-google-map>
+<div>
+  <sebm-google-map [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
+    <sebm-google-map-marker *ngFor="let item of items | async" [latitude]="item.lat" [longitude]="item.lng" [visible]="true" [iconUrl]="getIcon(item.type)">
+      <sebm-google-map-info-window>
+        <h3>{{item.title}}</h3>
+        <hr>
+        {{item.description}}
+      </sebm-google-map-info-window>
+    </sebm-google-map-marker>
+  </sebm-google-map>
+</div>

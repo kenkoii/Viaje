@@ -1,14 +1,14 @@
-<header>
-	<nav *ngIf="userService.UserAuthState">
+<header *ngIf="userService.UserAuthState">
+	<nav>
 		<h4 routerLink="/" routerLinkActive="active">Viaje</h4>
-		<ul *ngIf="userService.getRole()=='admin'">
-			<li><a routerLink="/admin/motorists"><i class="list layout icon"></i><span> Motorist</span></a></li>
-			<li><a routerLink="/admin/safezones"><i class="trophy icon"></i><span> Safezones</span></a></li>
-			<li><a routerLink="/admin/notifications"><i class="sort alphabet ascending icon"></i><span> Notifications</span></a></li>
-			<li><a routerLink="/user"><i class="user icon"></i><span> Profile</span></a></li>
+		<ul class="" *ngIf="userService.getRole()=='admin'">
+			<li routerLink="/admin/motorists"> <span>MOTORIST</span></li>
+			<li routerLink="/admin/safezones"> <span>SAFEZONES</span></li>
+			<li routerLink="/admin/notifications"> <span>NOTIFICATIONS</span></li>
+			<li routerLink="/user"> <span> PROFILE</span></li>
 		</ul>
-		<ul *ngIf="userService.getRole() == 'motorist' || userService.getRole() == 'safezone'">
-			<li><a routerLink="/user"><i class="user icon"></i><span> Profile</span></a></li>
+		<ul *ngIf="userService.getRole() == 'motorist' || userService.getRole() == 'safezone' || userService.getRole() == ''">
+			<li routerLink="/user">Profile</li>
 		</ul>
 	</nav>
 </header>
