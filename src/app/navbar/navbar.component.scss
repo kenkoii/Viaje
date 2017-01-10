@@ -1,9 +1,11 @@
 @import "src/styles.scss";
 header{
+  position: relative;
+  z-index: 5000;
   width: 100%;
   background: $emerald;
   nav{
-    width: 1024px;
+    width: 100%;
     margin: 0 auto;
     h4{
       padding: 23px;

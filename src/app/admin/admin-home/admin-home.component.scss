@@ -1,0 +1,48 @@
+@import "src/styles.scss";
+@import "src/grid.scss";
+
+main{
+  width: 100%;
+  section{
+    width: 100%;
+    margin: 0 auto;
+    .container{
+      position: fixed;
+      z-index: 100;
+      width: 300px;
+      height: 100%;
+      overflow-y: auto;
+      background: $white;
+      top: 0;
+      left: 0;
+      padding: 65px 10px;
+      margin-bottom: 30px;
+      .motorist{
+        padding: 10px;
+        width: auto;
+        border-radius: 9px;
+        margin: 10px 0px;
+        &:hover{
+          background: rgba(0,0,0,0.1);
+        }
+        &:nth-child(even){
+          background: rgba(0,0,0,0.05);
+        }
+        &:last-child{
+          margin-bottom: 65px;
+        }
+        h2{
+          color: $midnight-blue;
+          span{
+            font-size: 12px;
+            vertical-align: middle;
+            color: $nephritis;
+          }
+        }
+        p{
+          margin: 5px 0px;
+        }
+      }
+    }
+  }
+}

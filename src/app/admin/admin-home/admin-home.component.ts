@@ -4,7 +4,7 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
-  styleUrls: ['./admin-home.component.sass']
+  styleUrls: ['./admin-home.component.scss']
 })
 export class AdminHomeComponent implements OnInit {
   motorists: FirebaseListObservable<any>;
