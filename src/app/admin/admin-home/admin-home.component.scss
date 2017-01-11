@@ -10,12 +10,12 @@ main{
       position: fixed;
       z-index: 100;
       width: 300px;
-      height: 100%;
+      height: calc(100vh - 65px);
       overflow-y: auto;
       background: $white;
-      top: 0;
+      top: 65px;
       left: 0;
-      padding: 65px 10px;
+      padding: 10px;
       margin-bottom: 30px;
       .motorist{
         padding: 10px;

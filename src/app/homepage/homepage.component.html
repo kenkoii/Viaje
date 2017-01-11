@@ -4,16 +4,28 @@
 
 <main *ngIf="role == 'motorist'">
   <section>
-    <!-- <app-map></app-map> -->
+  <div class="post-container">
     <form>
       <h3>What concerns you? Let us know.</h3>
-        <textarea placeholder="What's on your mind" [(ngModel)]="formText" [ngModelOptions]="{standalone: true}"> </textarea><br>
-        <button (click)="submitPost()" name="button">Post</button>
+      <textarea placeholder="What's on your mind" [(ngModel)]="formText" [ngModelOptions]="{standalone: true}"> </textarea><br>
+      <button (click)="submitPost()" name="button">Post</button>
     </form>
-    <div *ngFor="let post of posts | async">
-      <h2>{{post.user.username}} <span>{{post.user.given_name + ' ' + post.user.family_name}}</span></h2>
-      <p>{{post.text}}</p>
+    <div class="posts">
+      <div class="motorist-post" *ngFor="let post of posts | async">
+        <h5>{{post.user.given_name + ' ' + post.user.family_name}} • <span>10:30 AM TUE</span></h5>
+        <p>{{post.text}}</p>
+        <ul>
+          <li>
+            <h5>Juan Dela Cruz</h5>
+            <p>comment ni bai</p>
+          </li>
+        </ul>
+        <input type="text" placeholder="comment here">
+        <button type="button">post</button>
+      </div>
     </div>
+  </div>
+    <app-map></app-map>
   </section>
 </main>
 
