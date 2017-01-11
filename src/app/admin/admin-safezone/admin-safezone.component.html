@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -19,4 +19,14 @@
       <td>Location(coordinates)</td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+<main>
+  <section>
+    <div class="safezone" *ngFor="let safezone of safezones | async">
+      <h2>{{safezone.shop_name}} <span>{{safezone.address}}</span></h2>
+      <p>{{safezone.owner}} • {{safezone.contact_number}}</p>
+      <p>{{safezone.service_information_type}} • Location</p>
+    </div>
+  </section>
+</main>

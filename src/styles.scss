@@ -22,12 +22,60 @@ $asbestos: #7f8c8d;
 $white: #fff;
 $black: #363635;
 
+*{
+  box-sizing: border-box;
+}
+
 body{
   padding: 0px;
   margin: 0px;
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 }
 
 p{
   color: rgba(0,0,0,0.2);
+}
+
+input{
+  outline: none;
+  font-weight: 300;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  &:focus{
+    border: 1px solid $emerald;
+  }
+}
+
+
+button{
+  background: transparent;
+  padding: 10px 25px;
+  font-size: 18px;
+  border: 1px solid $nephritis;
+  color: $white;
+  background: $nephritis;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+main{
+  height: calc(100vh - 65px);
+  overflow-y: scroll;
+  section{
+    height: 100%;
+    width: 1024px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1024px){
+  section{
+    width: 100% !important;
+  }
 }

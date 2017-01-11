@@ -6,7 +6,7 @@ import { Safezone } from '../../../models/safezone.model';
 @Component({
   selector: 'app-safezone-form',
   templateUrl: './safezone-form.component.html',
-  styleUrls: ['./safezone-form.component.sass']
+  styleUrls: ['./safezone-form.component.scss']
 })
 export class SafezoneFormComponent implements OnInit {
 

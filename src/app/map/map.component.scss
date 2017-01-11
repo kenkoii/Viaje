@@ -7,3 +7,9 @@ div{
     height: calc(100vh - 65px);
   }
 }
+
+@media (max-width: 1024px){
+  .sebm-google-map-container{
+    height: calc(100vh - 76px) !important;
+  }
+}

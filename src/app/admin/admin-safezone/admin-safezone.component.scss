@@ -1,0 +1,33 @@
+@import "src/styles.scss";
+@import "src/grid.scss";
+
+main{
+  width: 100%;
+  section{
+    width: 1024px;
+    margin: 0 auto;
+    .safezone{
+      width: auto;
+      border-radius: 9px;
+      padding: 10px;
+      margin: 10px 0px;
+      &:hover{
+        background: rgba(0,0,0,0.1);
+      }
+      &:nth-child(even){
+        background: rgba(0,0,0,0.05);
+      }
+      h2{
+        color: $midnight-blue;
+        span{
+          font-size: 12px;
+          vertical-align: middle;
+          color: $nephritis;
+        }
+      }
+      p{
+        margin: 5px 0px;
+      }
+    }
+  }
+}
