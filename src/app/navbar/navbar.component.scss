@@ -8,14 +8,18 @@ header{
     width: 100%;
     margin: 0 auto;
     button{
+      outline: none;
       background: transparent;
       display: none;
     }
     h4{
+      transition: all 0.3s ease-in-out;
       padding: 23px;
       display: inline-block;
       margin: 0;
-      color: $white;
+      color: rgba(0,0,0,0.3) !important;
+      letter-spacing: 4px;
+      font-weight: 300;
     }
     ul{
       padding: 0px;
@@ -60,7 +64,7 @@ header{
       padding: 20px;
       position: absolute;
       top: 10px;
-      Right: 0px;
+      right: 0px;
       span{
         transition: all 0.3s ease-in-out;
         display: block;
@@ -72,35 +76,60 @@ header{
       }
       &:hover{
         span{
-          .patty{
+          &.patty{
             width: 15px;
           }
-          .bottom{
+          &.bottom{
             width: 8px;
+          }
+        }
+      }
+      &.active{
+        right: 240px;
+        span{
+          position: relative;
+          &.top{
+            transform: rotate(45deg);
+            top: 8px;
+            width: 25px;
+          }
+          &.patty{
+            width: 0px;
+          }
+          &.bottom{
+            transform: rotate(-45deg);
+            bottom: 8px;
+            width: 25px;
           }
         }
       }
     }
     h4{
-      font-weight: 300;
-      width: 100%;
-      text-align: center;
       font-size: 26px;
-      letter-spacing: 4px;
       color: rgba(0,0,0,0.3) !important;
+      letter-spacing: 4px;
+      font-weight: 300;
     }
     ul{
+      transition: all 0.3s ease-in-out;
       background: $white;
       position: absolute;
       top: 0;
-      right: 100%;
+      right: -100%;
       z-index: 5100;
       height: 100vh;
       &.active{
         right: 0;
       }
       li{
+        padding: 0px 40px !important;
         display: block !important;
+        &:hover{
+          color: rgba(0,0,0,0.2) !important;
+          &::before, &::after{
+            background: rgba(0,0,0,0.2) !important;
+          }
+        }
       }
     }
   }

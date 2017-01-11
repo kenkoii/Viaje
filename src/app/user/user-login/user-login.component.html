@@ -1,12 +1,13 @@
-<p>
-  user-login works!
-</p>
-<div>
-    <form class="">
-      <h3>Sign in: </h3>
-        <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="email_address"> <br>
-        <input type="password" name="password" value="" placeholder="Password" [(ngModel)]="password"> <br>
-        <button (click)="onLogin()" name="button">Signin</button>
-    </form>
-    or sign up <a routerLink="/signup">here</a>
-</div>
+<main>
+  <section>
+    <div>
+        <form class="">
+          <h1>Sign in </h1>
+          <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="email_address"> <br>
+          <input type="password" name="password" value="" placeholder="Password" [(ngModel)]="password"> <br>
+          <button (click)="onLogin()" name="button">Signin</button>
+        </form>
+        <p>or sign up <a routerLink="/signup">here</a></p>
+    </div>
+  </section>
+</main>

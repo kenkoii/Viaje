@@ -7,12 +7,16 @@ import { UserService } from '../user.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+  private isMenuClose: boolean = true;
   constructor(private userService: UserService) {
 
   }
 
   ngOnInit() {
+  }
+
+  openMenuBar(){
+    this.isMenuClose = !this.isMenuClose;
   }
 
 }

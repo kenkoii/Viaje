@@ -1,19 +1,30 @@
 <header *ngIf="userService.UserAuthState">
 	<nav>
 		<h4 routerLink="/" routerLinkActive="active">VIAJE</h4>
-		<button type="button">
+		<button type="button" (click)="openMenuBar()" [class.active]="!isMenuClose">
 			<span class="top"></span>
 			<span class="patty"></span>
 			<span class="bottom"></span>
 		</button>
-		<ul class="" *ngIf="userService.getRole()=='admin'">
+		<ul class="" *ngIf="userService.getRole()=='admin'" [class.active]="!isMenuClose">
 			<li routerLink="/admin/motorists"> <span>MOTORIST</span></li>
 			<li routerLink="/admin/safezones"> <span>SAFEZONES</span></li>
 			<li routerLink="/admin/notifications"> <span>NOTIFICATIONS</span></li>
 			<li routerLink="/user"> <span> PROFILE</span></li>
 		</ul>
-		<ul *ngIf="userService.getRole() == 'motorist' || userService.getRole() == 'safezone' || userService.getRole() == ''">
-			<li routerLink="/user">Profile</li>
+	</nav>
+</header>
+
+<header *ngIf="!userService.UserAuthState">
+	<nav>
+		<h4 routerLink="/" routerLinkActive="active">VIAJE</h4>
+		<button type="button" (click)="openMenuBar()" [class.active]="!isMenuClose">
+			<span class="top"></span>
+			<span class="patty"></span>
+			<span class="bottom"></span>
+		</button>
+		<ul [class.active]="!isMenuClose" *ngIf="userService.getRole() == 'motorist' || userService.getRole() == 'safezone' || userService.getRole() == ''">
+			<li routerLink="/user">LOGIN</li>
 		</ul>
 	</nav>
 </header>

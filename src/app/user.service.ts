@@ -33,6 +33,7 @@ export class UserService {
               this.user = res[0];
               localStorage.setItem('role',this.user.type)
               console.log(this.user);
+              localStorage.setItem('user',JSON.stringify(this.user));
               if(this.user.type == 'admin'){
                 this.router.navigateByUrl('admin');
               }else{
@@ -47,6 +48,7 @@ export class UserService {
   userLogout(){
     this.af.auth.logout();
     localStorage.removeItem('role');
+    localStorage.removeItem('user');
   }
 
   isLoggedIn(){

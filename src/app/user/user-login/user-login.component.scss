@@ -1,0 +1,46 @@
+@import "src/styles.scss";
+main{
+  height: 100%;
+  width: 100%;
+  section{
+    width: 100%;
+    div{
+      width: 400px;
+      margin: 0 auto;
+      padding: 10px;
+      form{
+        h1{
+          color: $emerald;
+          font-weight: 300;
+        }
+        input{
+          font-weight: 300;
+          font-size: 16px;
+          width: 100%;
+          margin-bottom: 10px;
+          padding: 10px;
+        }
+        button{
+          background: transparent;
+          padding: 10px 25px;
+          font-size: 18px;
+          border: 1px solid $nephritis;
+          color: $white;
+          background: $nephritis;
+          width: 50%;
+          &:hover{
+            width: 100%;
+          }
+        }
+      }
+      p{
+        text-align: center;
+        color: rgba(0,0,0,0.2);
+        a{
+          color: $emerald;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

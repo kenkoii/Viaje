@@ -12,7 +12,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const APP_ROUTES: Routes =[
-  { path: 'admin', component: AdminHomeComponent, pathMatch: 'full'},
+  { path: 'admin', component: AdminHomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'admin/motorists', component: AdminMotoristComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'admin/safezones', component: AdminSafezoneComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'admin/notifications', component: AdminNotificationComponent, pathMatch: 'full', canActivate: [AuthGuard]},

@@ -30,8 +30,31 @@ body{
   padding: 0px;
   margin: 0px;
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 }
 
 p{
   color: rgba(0,0,0,0.2);
+}
+
+input{
+  outline: none;
+}
+
+button{
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+main{
+  height: calc(100vh - 65px);
+  overflow-y: scroll;
+  section{
+    height: 100%;
+    width: 1024px;
+    margin: 0 auto;
+  }
 }
