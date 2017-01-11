@@ -18,16 +18,4 @@
 </main>
 
 
-
-<main *ngIf="role == 'admin'">
-  <section>
-    <div class="container">
-      <div class="motorist" *ngFor="let motorist of motorists | async">
-        <h2>{{motorist.username}} <span>{{motorist.given_name + ' ' + motorist.family_name}}</span></h2>
-        <p>{{motorist.contact_number}} • <span>{{motorist.address}}</span></p>
-        <p>Plate No. {{motorist.vehicle_information_plate_number}} • <span>Type {{motorist.vehicle_information_vehicle_type}}</span> • {{motorist.vehicle_information_model_year}}</p>
-      </div>
-    </div>
-    <app-map></app-map>
-  </section>
-</main>
+<app-admin-home *ngIf="role == 'admin'"></app-admin-home>

@@ -43,7 +43,12 @@ export class MotoristFormComponent implements OnInit {
           };
 
           const users = this.af.database.list('users');
-          users.push(user_motorist);
+          users.push(user_motorist)
+                    .then(data => {
+                                alert("Registration Successful, please login again.")
+                                this.router.navigateByUrl('login');
+                        })
+                    .catch(err => console.log(err));
 
       }).catch(
           (err) => {
