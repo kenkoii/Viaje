@@ -10,7 +10,10 @@
 			<li routerLink="/admin/motorists"> <span>MOTORIST</span></li>
 			<li routerLink="/admin/safezones"> <span>SAFEZONES</span></li>
 			<li routerLink="/admin/notifications"> <span>NOTIFICATIONS</span></li>
-			<li routerLink="/user"> <span> PROFILE</span></li>
+			<li routerLink="/user"><span> PROFILE </span></li>
+		</ul>
+		<ul class="" *ngIf="userService.getRole()=='motorist' || userService.getRole()=='safezone'">
+			<li routerLink="/user"><span> PROFILE </span></li>
 		</ul>
 	</nav>
 </header>

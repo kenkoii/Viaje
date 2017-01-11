@@ -7,6 +7,7 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AuthGuard } from './authguard.service';
+import { AdminGuard } from './adminguard.service';
 import { UserService } from './user.service';
 
 import { AppComponent } from './app.component';
@@ -65,7 +66,7 @@ const myFirebaseAuthConfig = {
       apiKey: 'AIzaSyBAe8thTIIikNvgLp7DDLNK0OeFOUyLf9o'
     })
   ],
-  providers: [UserService,AuthGuard],
+  providers: [UserService,AuthGuard,AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
