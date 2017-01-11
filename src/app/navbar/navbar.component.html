@@ -7,8 +7,14 @@
 			<li routerLink="/admin/notifications"> <span>NOTIFICATIONS</span></li>
 			<li routerLink="/user"> <span> PROFILE</span></li>
 		</ul>
+	</nav>
+</header>
+
+<header *ngIf="!userService.UserAuthState">
+	<nav>
+		<h4 routerLink="/" routerLinkActive="active">Viaje</h4>
 		<ul *ngIf="userService.getRole() == 'motorist' || userService.getRole() == 'safezone' || userService.getRole() == ''">
-			<li routerLink="/user">Profile</li>
+			<li routerLink="/user">Login</li>
 		</ul>
 	</nav>
 </header>
