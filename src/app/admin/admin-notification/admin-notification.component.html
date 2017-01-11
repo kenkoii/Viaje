@@ -1,6 +1,10 @@
-<h2>
-  Subscription
-</h2>
-<div *ngFor="let safezone of safezones | async">
-  <strong>{{safezone.shop_name}}</strong> has subscribed.
-</div>
+<main>
+  <section>
+    <h2>
+      Subscription
+    </h2>
+    <div class="notification" *ngFor="let safezone of safezones | async">
+      <span><strong>{{safezone.shop_name}}</strong> has subscribed.</span>
+    </div>
+  </section>
+</main>

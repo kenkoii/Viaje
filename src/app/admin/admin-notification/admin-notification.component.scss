@@ -1,0 +1,21 @@
+@import "src/styles.scss";
+@import "src/grid.scss";
+
+main{
+  section{
+    h2{
+      font-weight: 300;
+      color: $nephritis;
+    }
+    .notification{
+      span{
+        border-radius: 9px;
+        padding: 10px;
+        color: rgba(0,0,0,0.3);
+        strong{
+          color: $green-sea;
+        }
+      }
+    }
+  }
+}
