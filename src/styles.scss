@@ -22,6 +22,10 @@ $asbestos: #7f8c8d;
 $white: #fff;
 $black: #363635;
 
+*{
+  box-sizing: border-box;
+}
+
 body{
   padding: 0px;
   margin: 0px;

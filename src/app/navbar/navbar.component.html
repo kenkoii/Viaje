@@ -1,6 +1,11 @@
 <header *ngIf="userService.UserAuthState">
 	<nav>
-		<h4 routerLink="/" routerLinkActive="active">Viaje</h4>
+		<h4 routerLink="/" routerLinkActive="active">VIAJE</h4>
+		<button type="button">
+			<span class="top"></span>
+			<span class="patty"></span>
+			<span class="bottom"></span>
+		</button>
 		<ul class="" *ngIf="userService.getRole()=='admin'">
 			<li routerLink="/admin/motorists"> <span>MOTORIST</span></li>
 			<li routerLink="/admin/safezones"> <span>SAFEZONES</span></li>
