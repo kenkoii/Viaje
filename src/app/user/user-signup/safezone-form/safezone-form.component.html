@@ -1,27 +1,24 @@
-<p>
-  safezone-form works!
-</p>
 <!-- Safezone - Sign up Form -->
-<h1>Signup as Safezone</h1>
-<form class="">
+<div class="safezone-container">
+  <h1>Signup as Safezone</h1>
+  <form class="">
+      <h3>Contact Information: </h3>
+      <input type="text" name="username" value="" placeholder="Username" [(ngModel)]="safezone.username">
+      <input type="password" name="password" value="" placeholder="Password" [(ngModel)]="safezone.password">
+      <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="safezone.email_address">
+      <input type="text" name="shop_name" value="" placeholder="Shop Name" [(ngModel)]="safezone.shop_name">
+      <input type="text" name="owner" value="" placeholder="Owner" [(ngModel)]="safezone.owner">
+      <input type="text" name="address" value="" placeholder="Address" [(ngModel)]="safezone.address">
+      <input type="text" name="contact_number" value="" placeholder="Contact Number" [(ngModel)]="safezone.contact_number">
 
-    <h3>Contact Information: </h3>
-    <input type="text" name="username" value="" placeholder="Username" [(ngModel)]="safezone.username"> <br>
-    <input type="password" name="password" value="" placeholder="Password" [(ngModel)]="safezone.password"> <br>
-    <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="safezone.email_address"> <br>
-    <input type="text" name="shop_name" value="" placeholder="Shop Name" [(ngModel)]="safezone.shop_name"> <br>
-    <input type="text" name="owner" value="" placeholder="Owner" [(ngModel)]="safezone.owner"> <br>
-    <input type="text" name="address" value="" placeholder="Address" [(ngModel)]="safezone.address"> <br>
-    <input type="text" name="contact_number" value="" placeholder="Contact Number" [(ngModel)]="safezone.contact_number"> <br>
 
-    <br>
-
-    <h3>Service Information: </h3>
-    <h2>Service Type</h2>
-    <input type="radio" name="vehicle" value="towing" [(ngModel)]="safezone.service_information_type">Towing<br>
-    <input type="radio" name="vehicle" value="tire_service" [(ngModel)]="safezone.service_information_type">Tire Service <br>
-    <input type="radio" name="vehicle" value="fuel_delivery_service" [(ngModel)]="safezone.service_information_type">Fuel Delivery Service <br>
-
-    <button (click)="onSignupSafezone()" name="button">Signup</button>
-
-</form>
+      <h3>Service Information: </h3>
+      <h2>Service Type</h2>
+      <div class="radio-group">
+        <input type="radio" name="vehicle" value="towing" [(ngModel)]="safezone.service_information_type">Towing
+        <input type="radio" name="vehicle" value="tire_service" [(ngModel)]="safezone.service_information_type">Tire Service
+        <input type="radio" name="vehicle" value="fuel_delivery_service" [(ngModel)]="safezone.service_information_type">Fuel Delivery Service
+      </div>
+      <button (click)="onSignupSafezone()" name="button">Signup</button>
+  </form>
+</div>

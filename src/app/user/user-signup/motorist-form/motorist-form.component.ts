@@ -6,7 +6,7 @@ import { AngularFire } from 'angularfire2';
 @Component({
   selector: 'app-motorist-form',
   templateUrl: './motorist-form.component.html',
-  styleUrls: ['./motorist-form.component.sass']
+  styleUrls: ['./motorist-form.component.scss']
 })
 export class MotoristFormComponent implements OnInit {
 

@@ -1,0 +1,16 @@
+@import "src/styles.scss";
+@import "src/grid.scss";
+
+.motorist-container{
+  padding: 10px;
+  h1{
+    font-weight: 300;
+    color: $emerald;
+  }
+  form{
+    h3{
+      font-weight: 300;
+      color: $midnight-blue;
+    }
+  }
+}
