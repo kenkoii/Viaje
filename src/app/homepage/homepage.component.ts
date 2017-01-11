@@ -51,4 +51,25 @@ export class HomepageComponent implements OnInit {
     this.formText = "";
   }
 
+  submitComment(post: any, text: string){
+    let user = JSON.parse(localStorage.getItem('user'));
+    delete user.$key;
+    console.log(user);
+    console.log(post);
+    let comment = {
+         timestamp: Date.now(),
+         user: user,
+         text: text
+    };
+    //Push post to firebase.
+    let postComment = this.af.database.list('/posts/'+post.$key+'/comments');
+    postComment.push(comment);
+    this.formText = "";
+  }
+
+  convertArray(val){
+    console.log(Array.from(val));
+    return Array.from(val);
+  }
+
 }

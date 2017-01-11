@@ -26,6 +26,7 @@ import { AdminSafezoneComponent } from './admin/admin-safezone/admin-safezone.co
 import { AdminNotificationComponent } from './admin/admin-notification/admin-notification.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 const myFirebaseConfig = {
@@ -54,7 +55,8 @@ const myFirebaseAuthConfig = {
     AdminNotificationComponent,
     UserLoginComponent,
     UserProfileComponent,
-    HomepageComponent
+    HomepageComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

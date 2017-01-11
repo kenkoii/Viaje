@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let comment of comments">
+    <h5>{{comment.user.given_name + ' ' + comment.user.family_name}}</h5>
+    <p>{{comment.text}}</p>
+  </li>
+</ul>
