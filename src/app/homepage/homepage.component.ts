@@ -9,17 +9,9 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 export class HomepageComponent implements OnInit {
   private role: string;
   private formText: string;
-
-  motorists: FirebaseListObservable<any>;
   posts: FirebaseListObservable<any>;
   constructor(private af: AngularFire) {
     this.role = localStorage.getItem('role');
-    this.motorists = af.database.list('/users', {
-      query: {
-        orderByChild: 'type',
-        equalTo: 'motorist'
-      }
-    });
     this.posts = this.af.database.list('/posts');
   }
   ngOnInit() {
@@ -56,6 +48,7 @@ export class HomepageComponent implements OnInit {
     };
     //Push post to firebase.
     this.posts.push(post);
+    this.formText = "";
   }
 
 }

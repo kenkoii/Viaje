@@ -41,7 +41,12 @@ export class SafezoneFormComponent implements OnInit {
           };
           //Push list of safezone to firebase.
           const safezones = this.af.database.list('users');
-          safezones.push(user_safezone);
+          safezones.push(user_safezone)
+                    .then(data => {
+                                alert("Registration Successful, please login again.")
+                                this.router.navigateByUrl('login');
+                        })
+                    .catch(err => console.log(err));
 
       }).catch(
           (err) => {
