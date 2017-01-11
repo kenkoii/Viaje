@@ -7,6 +7,9 @@
 			<li routerLink="/admin/notifications"> <span>NOTIFICATIONS</span></li>
 			<li routerLink="/user"> <span> PROFILE</span></li>
 		</ul>
+		<ul class="" *ngIf="userService.getRole()=='motorist' || userService.getRole()=='safezone'">
+			<li routerLink="/user"> <span> PROFILE</span></li>
+		</ul>
 	</nav>
 </header>
 
