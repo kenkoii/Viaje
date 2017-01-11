@@ -34,7 +34,7 @@ body{
 }
 
 p{
-  color: rgba(0,0,0,0.2);
+  color: rgba(0,0,0,0.3);
 }
 
 input{
@@ -61,6 +61,7 @@ button{
   transition: all 0.3s ease-in-out;
   &:hover{
     cursor: pointer;
+    background: $emerald;
   }
 }
 
@@ -72,6 +73,17 @@ main{
     width: 1024px;
     margin: 0 auto;
   }
+}
+
+
+textarea{
+  outline: none;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  resize: none;
+  height: auto;
 }
 
 @media (max-width: 1024px){

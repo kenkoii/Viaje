@@ -6,6 +6,83 @@ main{
   section{
     width: 100%;
     margin: 0 auto;
+    .post-container{
+        position: fixed;
+        z-index: 100;
+        width: 400px;
+        height: calc(100vh - 65px);
+        background: $white;
+        top: 65px;
+        right: 0;
+        form{
+          padding: 20px;
+          border-bottom: 1px solid rgba(0,0,0,0.1);
+          &::after{
+            content: "";
+            clear: both;
+            display: block;
+          }
+          h3{
+            color: $wet-asphalt;
+          }
+          button{
+            float :right;
+            font-size: 14px;
+          }
+        }
+        .posts{
+          padding: 20px;
+          height: calc(100% - 212px);
+          overflow-y: auto;
+          .motorist-post{
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 9px;
+            background: rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            h5{
+              margin: 5px 0px;
+              color: $emerald;
+              vertical-align: middle;
+              span{
+                vertical-align: middle;
+                color: rgba(0,0,0,0.3);
+                font-size: 10px !important;
+              }
+            }
+            p{
+              color: $wet-asphalt;
+
+            }
+            input{
+              display: inline-block;
+              font-size: 14px;
+              margin: 0;
+              width: 75%;
+            }
+            button{
+              float: right;
+              width: 25%;
+              font-size: 14px;
+              padding: 10px;
+            }
+            ul{
+              padding-left: 15px;
+              margin: 20px 10px;
+              list-style: none;
+              li{
+                h5{
+                  margin: 5px 0px;
+                }
+                p{
+                  margin: 5px 0px;
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+    }
     .container{
       position: fixed;
       z-index: 100;
@@ -16,7 +93,6 @@ main{
       top: 0;
       left: 0;
       padding: 65px 10px;
-      margin-bottom: 30px;
       .motorist{
         padding: 10px;
         width: auto;

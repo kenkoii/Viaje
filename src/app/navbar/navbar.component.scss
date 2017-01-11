@@ -115,9 +115,11 @@ header{
       background: $white;
       position: absolute;
       top: 0;
+      width: 235px;
       right: -100%;
       z-index: 5100;
       height: 100vh;
+      box-shadow: 5px 0px 25px $midnight-blue;
       &.active{
         right: 0;
       }
