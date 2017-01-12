@@ -12,10 +12,15 @@ export class SafezoneFormComponent implements OnInit {
 
   public safezone = new Safezone();
   public address : Object;
+  private isLocationModalOpen: boolean = false;
 
   constructor( private af: AngularFire, private router: Router ) { }
 
   ngOnInit() {
+  }
+
+  openLocationModal(){
+    this.isLocationModalOpen = !this.isLocationModalOpen;
   }
 
   getAddress(place:Object) {
