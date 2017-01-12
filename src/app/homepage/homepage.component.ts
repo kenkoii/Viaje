@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-homepage',
@@ -12,7 +13,7 @@ export class HomepageComponent implements OnInit {
   posts: FirebaseListObservable<any>;
   constructor(private af: AngularFire) {
     this.role = localStorage.getItem('role');
-    this.posts = this.af.database.list('/posts');
+    this.posts = this.af.database.list('/posts').map((arr)=>{return arr.reverse();}) as FirebaseListObservable<any[]>;
   }
   ngOnInit() {
   }
