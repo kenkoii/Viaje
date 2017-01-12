@@ -6,16 +6,41 @@ main{
   section{
     width: 100%;
     margin: 0 auto;
+    .action-bar{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      list-style: none;
+      background: transparent;
+      li{
+        display: inline-block;
+        padding: 0px 10px;
+        button{
+          border: 1px solid $midnight-blue;
+          color: $emerald;
+          border-radius: 9px;
+          font-size: 14px;
+          background: $midnight-blue;
+          &:hover{
+            background: $wet-asphalt;
+          }
+        }
+      }
+    }
     .post-container{
         position: fixed;
         z-index: 100;
         width: 400px;
         height: calc(100vh - 65px);
-        background: $white;
+        background: rgba(0,0,0,0.05);
         top: 65px;
         right: 0;
         form{
-          padding: 20px;
+          margin: 10px;
+          padding: 10px;
+          background: $white;
+          border-radius: 9px;
           border-bottom: 1px solid rgba(0,0,0,0.1);
           &::after{
             content: "";
@@ -23,22 +48,27 @@ main{
             display: block;
           }
           h3{
+            margin: 0px;
             color: $wet-asphalt;
           }
+          textarea{
+            border: 0px;
+          }
           button{
+            border-radius: 9px;
             float :right;
             font-size: 14px;
           }
         }
         .posts{
-          padding: 20px;
-          height: calc(100% - 212px);
+          padding: 10px;
+          height: calc(100% - 158px);
           overflow-y: auto;
           .motorist-post{
             padding: 10px;
             margin-bottom: 20px;
             border-radius: 9px;
-            background: rgba(0,0,0,0.05);
+            background: $white;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             h5{
               margin: 5px 0px;
@@ -52,7 +82,6 @@ main{
             }
             p{
               color: $wet-asphalt;
-
             }
             input{
               display: inline-block;
@@ -66,7 +95,6 @@ main{
               font-size: 14px;
               padding: 10px;
             }
-            
           }
         }
     }
