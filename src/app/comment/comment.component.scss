@@ -1,8 +1,9 @@
 @import "src/styles.scss";
 
 ul{
+  max-height: 200px;
+  overflow: auto;
   padding-left: 15px;
-  margin: 20px 10px;
   list-style: none;
   li{
     margin-bottom: 25px;
