@@ -7,10 +7,11 @@ main{
     width: 1024px;
     margin: 0 auto;
     .motorist{
+      @include animate-appear;
       width: auto;
       border-radius: 9px;
       padding: 10px;
-      margin: 10px 0px;
+      margin: 10px 0px;;
       &:hover{
         background: rgba(0,0,0,0.1);
       }
