@@ -11,16 +11,27 @@ import { Safezone } from '../../../models/safezone.model';
 export class SafezoneFormComponent implements OnInit {
 
   public safezone = new Safezone();
+  public address : Object;
 
   constructor( private af: AngularFire, private router: Router ) { }
 
   ngOnInit() {
   }
 
+  getAddress(place:Object) {
+          this.address = place['formatted_address'];
+          var location = place['geometry']['location'];
+          var lat =  location.lat();
+          var lng = location.lng();
+          console.log("lat:"+lat+",lng:"+lng);
+          this.safezone.address = {
+            address: this.address,
+            lat: lat,
+            lng: lng
+          };
+      }
+
   onSignupSafezone() {
-
-
-
       this.af.auth.createUser({
           email: this.safezone.email_address,
           password: this.safezone.password

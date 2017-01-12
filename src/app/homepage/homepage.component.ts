@@ -10,10 +10,17 @@ import 'rxjs/add/operator/map';
 export class HomepageComponent implements OnInit {
   private role: string;
   private formText: string;
+  private safezones: any;
   posts: FirebaseListObservable<any>;
   constructor(private af: AngularFire) {
     this.role = localStorage.getItem('role');
     this.posts = this.af.database.list('/posts').map((arr)=>{return arr.reverse();}) as FirebaseListObservable<any[]>;
+    this.safezones = af.database.list('/users', {
+      query: {
+        orderByChild: 'type',
+        equalTo: 'safezone'
+      }
+    });
   }
   ngOnInit() {
   }

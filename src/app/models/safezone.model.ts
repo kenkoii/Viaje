@@ -6,7 +6,7 @@ export class Safezone {
     public owner: string;
     public username: string;
     public password: string;
-    public address: string;
+    public address: any;
     public email_address: string;
     public contact_number: string
     public service_information_type: string[];
