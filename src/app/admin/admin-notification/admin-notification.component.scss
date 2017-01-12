@@ -8,6 +8,7 @@ main{
       color: $nephritis;
     }
     .notification{
+      @include animate-appear;
       padding: 20px;
       border-radius: 9px;
       margin-bottom: 10px;
