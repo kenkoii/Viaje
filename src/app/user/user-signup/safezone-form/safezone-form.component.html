@@ -9,6 +9,7 @@
       <input type="text" name="shop_name" value="" placeholder="Shop Name" [(ngModel)]="safezone.shop_name">
       <input type="text" name="owner" value="" placeholder="Owner" [(ngModel)]="safezone.owner">
       <input type="text" name="address" value="" placeholder="Address" [(ngModel)]="safezone.address">
+      <button (click)="openLocationModal()" name="button">Pin Location</button>
       <input type="text" name="contact_number" value="" placeholder="Contact Number" [(ngModel)]="safezone.contact_number">
 
 
@@ -21,4 +22,12 @@
       </div>
       <button (click)="onSignupSafezone()" name="button">Signup</button>
   </form>
+</div>
+
+
+<div class="modal" [class.active]="!isLocationModalOpen">
+  <div class="container">
+    <button (click)="openLocationModal()" name="button"> close </button>
+    <app-map></app-map>
+  </div>
 </div>

@@ -16,11 +16,52 @@
       font-weight: 300;
       color: $nephritis;
     }
+    button{
+      width: 100%;
+      margin-bottom: 10px;
+    }
     .radio-group{
       margin-bottom: 10px;
       input[type="radio"]{
         width: auto;
         display: inline-block;
+      }
+    }
+  }
+}
+
+
+.modal{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 5100;
+  @include animate-appear;
+  &.active{
+    display: block;
+  }
+  .container{
+    width: 500px;
+    margin: 20px auto;
+    border-radius: 9px;
+    padding: 10px;
+    background: $white;
+    position: relative;
+    button{
+      border-radius: 9px;
+      font-size: 10px;
+      background: $orange;
+      position: absolute;
+      border: 1px solid $orange;
+      top: 10px;
+      right: 10px;
+      z-index: 100;
+      &:hover{
+        background: $sunflower;
       }
     }
   }
