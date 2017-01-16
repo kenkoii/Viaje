@@ -1,7 +1,19 @@
 <div>
-  <sebm-google-map [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
-    <sebm-google-map-marker *ngFor="let item of markers | async" [latitude]="item.address.lat" [longitude]="item.address.lng" [visible]="true" [iconUrl]="getIcon(item.service_information_type)">
-
+  <sebm-google-map *ngIf="onlineusers" [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
+    <sebm-google-map-marker *ngFor="let user of onlineusers | async" [latitude]="user.latitude" [longitude]="user.longitude" [visible]="true" [iconUrl]="getIcon(user.motorist.type)">
+      <sebm-google-map-info-window>
+        <h2>{{user.motorist.username}} <span>{{user.motorist.given_name + ' ' + user.motorist.family_name}}</span></h2>
+        <p>{{user.motorist.contact_number}} • <span>{{user.motorist.address}}</span></p>
+        <p>Plate No. {{user.motorist.vehicle_information_plate_number}} • <span>Type {{user.motorist.vehicle_information_vehicle_type}}</span> • {{user.motorist.vehicle_information_model_year}}</p>
+      </sebm-google-map-info-window>
     </sebm-google-map-marker>
+  </sebm-google-map>
+
+  <sebm-google-map *ngIf="markers" [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
+    <sebm-google-map-marker *ngFor="let item of markers | async" [latitude]="item.address.lat" [longitude]="item.address.lng" [visible]="true" [iconUrl]="getIcon(item.service_information_type)">
+    </sebm-google-map-marker>
+  </sebm-google-map>
+
+  <sebm-google-map *ngIf="!markers && !onlineusers" [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
   </sebm-google-map>
 </div>

@@ -1,32 +1,12 @@
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Plate No.</th>
-      <th>Type</th>
-      <th>Model</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let motorist of motorists | async">
-      <td>{{motorist.username}}</td>
-      <td>{{motorist.vehicle_information_plate_number}}</td>
-      <td>{{motorist.vehicle_information_vehicle_type}}</td>
-      <td>{{motorist.vehicle_information_model_year}}</td>
-    </tr>
-  </tbody>
-</table>
-<app-map></app-map> -->
-
 <main>
   <section>
     <div class="container">
-      <div class="motorist"  *ngFor="let motorist of motorists | async">
-        <h2>{{motorist.username}} <span>{{motorist.given_name + ' ' + motorist.family_name}}</span></h2>
-        <p>{{motorist.contact_number}} • <span>{{motorist.address}}</span></p>
-        <p>Plate No. {{motorist.vehicle_information_plate_number}} • <span>Type {{motorist.vehicle_information_vehicle_type}}</span> • {{motorist.vehicle_information_model_year}}</p>
+      <div class="motorist"  *ngFor="let user of onlineusers | async">
+        <h2>{{user.motorist.username}} <span>{{user.motorist.given_name + ' ' + user.motorist.family_name}}</span></h2>
+        <p>{{user.motorist.contact_number}} • <span>{{user.motorist.address}}</span></p>
+        <p>Plate No. {{user.motorist.vehicle_information_plate_number}} • <span>Type {{user.motorist.vehicle_information_vehicle_type}}</span> • {{user.motorist.vehicle_information_model_year}}</p>
       </div>
     </div>
-    <app-map></app-map>
+    <app-map [onlineusers]="onlineusers"></app-map>
   </section>
 </main>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
-import { FirebaseAuth, FirebaseAuthState, FirebaseListObservable } from 'angularfire2';
+import { FirebaseAuthState, FirebaseListObservable } from 'angularfire2';
 import { Router } from '@angular/router';
 
 @Injectable()

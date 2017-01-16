@@ -7,15 +7,10 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
   styleUrls: ['./admin-home.component.scss']
 })
 export class AdminHomeComponent implements OnInit {
-  motorists: FirebaseListObservable<any>;
+  onlineusers: FirebaseListObservable<any>;
   constructor(af: AngularFire) {
-    this.motorists = af.database.list('/users', {
-      query: {
-        orderByChild: 'type',
-        equalTo: 'motorist'
-      }
-    });
-    console.log(this.motorists)
+    this.onlineusers = af.database.list('/online_users');
+    console.log(this.onlineusers)
   }
 
   ngOnInit() {

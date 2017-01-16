@@ -21,13 +21,14 @@ class Marker{
 })
 export class MapComponent implements OnInit, OnChanges {
   @Input() markers: any;
+  @Input() onlineusers: any;
   constructor() { }
 
   ngOnInit() {
   }
 
   ngOnChanges() {
-    console.log(this.markers);
+    console.log(this.onlineusers);
     // this.markers.subscribe(
     //   res => {
     //     this.safezones = res;
@@ -38,6 +39,7 @@ export class MapComponent implements OnInit, OnChanges {
     //   () => {
     //     this.safezones[0]
     //   });
+
   }
 
   getIcon(type){
