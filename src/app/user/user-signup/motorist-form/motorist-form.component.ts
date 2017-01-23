@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Motorist } from '../../../models/motorist.model';
 import { AngularFire } from 'angularfire2';
 
+declare var swal: any;
 @Component({
   selector: 'app-motorist-form',
   templateUrl: './motorist-form.component.html',
@@ -44,15 +45,37 @@ export class MotoristFormComponent implements OnInit {
 
           const users = this.af.database.list('users');
           users.push(user_motorist)
-                    .then(data => {
-                                alert("Registration Successful, please login again.")
-                                this.router.navigateByUrl('login');
-                        })
-                    .catch(err => console.log(err));
+                      .then(data => {
+                              swal({
+                                  title: "Congratulations!",
+                                  text: "Registration Successful, please login again.",
+                                  type: "success",
+                                  confirmButtonColor: "#2ECC71",
+                                  confirmButtonText: "OK",
+                                  closeOnConfirm: true
+                              });
+                              this.router.navigateByUrl('login');
+                          })
+                      .catch(err =>
+                              swal({
+                                title: "Login Error",
+                                text: err.message,
+                                type: "error",
+                                confirmButtonColor: "#DD6B55",
+                                confirmButtonText: "OK",
+                                closeOnConfirm: true
+                              }));
 
       }).catch(
-          (err) => {
-          console.log(err);
+        (err) => {
+          swal({
+            title: "Error",
+            text: err.message,
+            type: "error",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "OK",
+            closeOnConfirm: true
+          });
       })
 
   } //end onSignup

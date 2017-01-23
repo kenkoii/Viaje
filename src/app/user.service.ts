@@ -4,6 +4,7 @@ import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { FirebaseAuthState, FirebaseListObservable } from 'angularfire2';
 import { Router } from '@angular/router';
 
+declare var swal: any;
 @Injectable()
 export class UserService {
   public UserAuthState: FirebaseAuthState;
@@ -41,7 +42,14 @@ export class UserService {
               }
             });
         }).catch((err)=>{
-          console.log(err);
+          swal({
+            title: "Login Error",
+            text: err.message,
+            type: "error",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "OK",
+            closeOnConfirm: true
+          });
         });
   }
 

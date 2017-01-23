@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 import { SebmGoogleMap } from 'angular2-google-maps/core';
 
 class Marker{
@@ -22,6 +22,7 @@ class Marker{
 export class MapComponent implements OnInit, OnChanges {
   @Input() markers: any;
   @Input() onlineusers: any;
+  @Output() mapClick = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -40,6 +41,15 @@ export class MapComponent implements OnInit, OnChanges {
     //     this.safezones[0]
     //   });
 
+  }
+
+  mapClicked($event: MouseEvent) {
+    console.log("Hello");
+    if(!this.onlineusers && !this.markers){
+      this.mapClick.emit({lat: $event.coords.lat, lng: $event.coords.lng})
+    }else{
+        console.log("Not logged in");
+    }
   }
 
   getIcon(type){

@@ -8,7 +8,7 @@
       <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="safezone.email_address">
       <input type="text" name="shop_name" value="" placeholder="Shop Name" [(ngModel)]="safezone.shop_name">
       <input type="text" name="owner" value="" placeholder="Owner" [(ngModel)]="safezone.owner">
-      <input type="text" name="address" value="" placeholder="Address" [(ngModel)]="safezone.address">
+      <input type="text" name="address" value="" placeholder="Address" [(ngModel)]="addressForm">
       <button (click)="openLocationModal()" name="button">Pin Location</button>
       <input type="text" name="contact_number" value="" placeholder="Contact Number" [(ngModel)]="safezone.contact_number">
 
@@ -16,18 +16,21 @@
       <h3>Service Information: </h3>
       <h2>Service Type</h2>
       <div class="radio-group">
-        <input type="radio" name="vehicle" value="towing" [(ngModel)]="safezone.service_information_type">Towing
-        <input type="radio" name="vehicle" value="tire_service" [(ngModel)]="safezone.service_information_type">Tire Service
-        <input type="radio" name="vehicle" value="fuel_delivery_service" [(ngModel)]="safezone.service_information_type">Fuel Delivery Service
+        <input type="radio" name="vehicle" value="towing" [(ngModel)]="safezone.service_information_type">Towing<br>
+        <input type="radio" name="vehicle" value="vulcanizing" [(ngModel)]="safezone.service_information_type">Vulcanizing<br>
+        <input type="radio" name="vehicle" value="repair" [(ngModel)]="safezone.service_information_type">Repair<br>
+        <input type="radio" name="vehicle" value="police" [(ngModel)]="safezone.service_information_type">Towing<br>
+        <input type="radio" name="vehicle" value="gasoline" [(ngModel)]="safezone.service_information_type">Gasoline Station<br>
+        <input type="radio" name="vehicle" value="hospital" [(ngModel)]="safezone.service_information_type">Hospital<br>
       </div>
       <button (click)="onSignupSafezone()" name="button">Signup</button>
   </form>
 </div>
 
 
-<div class="modal" [class.active]="!isLocationModalOpen">
+<div class="modal" [class.active]="isLocationModalOpen">
   <div class="container">
     <button (click)="openLocationModal()" name="button"> close </button>
-    <app-map></app-map>
+    <app-map (mapClick)="mapClicked($event)"></app-map>
   </div>
 </div>

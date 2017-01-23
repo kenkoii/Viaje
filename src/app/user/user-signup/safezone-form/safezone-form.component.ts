@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { AngularFire } from 'angularfire2';
 import { Safezone } from '../../../models/safezone.model';
 
+declare var swal: any;
 @Component({
   selector: 'app-safezone-form',
   templateUrl: './safezone-form.component.html',
@@ -12,6 +13,7 @@ export class SafezoneFormComponent implements OnInit {
 
   public safezone = new Safezone();
   public address : Object;
+  public addressForm: string;
   private isLocationModalOpen: boolean = false;
 
   constructor( private af: AngularFire, private router: Router ) { }
@@ -36,7 +38,20 @@ export class SafezoneFormComponent implements OnInit {
           };
       }
 
+  mapClicked(obj){
+    console.log(obj.lat);
+    console.log(obj.lng);
+    this.safezone.address = {
+      address: this.addressForm,
+      lat: obj.lat,
+      lng: obj.lng
+    };
+    console.log(this.safezone.address)
+    this.openLocationModal();
+  }
+
   onSignupSafezone() {
+    if(this.safezone.address){
       this.af.auth.createUser({
           email: this.safezone.email_address,
           password: this.safezone.password
@@ -59,17 +74,46 @@ export class SafezoneFormComponent implements OnInit {
           const safezones = this.af.database.list('users');
           safezones.push(user_safezone)
                     .then(data => {
-                                alert("Registration Successful, please login again.")
-                                this.router.navigateByUrl('login');
+                            swal({
+                                title: "Congratulations!",
+                                text: "Registration Successful, please login again.",
+                                type: "success",
+                                confirmButtonColor: "#2ECC71",
+                                confirmButtonText: "OK",
+                                closeOnConfirm: true
+                            });
+                            this.router.navigateByUrl('login');
                         })
-                    .catch(err => console.log(err));
-
+                    .catch(err =>
+                            swal({
+                              title: "Login Error",
+                              text: err.message,
+                              type: "error",
+                              confirmButtonColor: "#DD6B55",
+                              confirmButtonText: "OK",
+                              closeOnConfirm: true
+                            }));
       }).catch(
           (err) => {
-          console.log(err);
-      })
-
-
+            swal({
+              title: "Error",
+              text: err.message,
+              type: "error",
+              confirmButtonColor: "#DD6B55",
+              confirmButtonText: "OK",
+              closeOnConfirm: true
+            });
+      });
+    }else{
+      swal({
+        title: "Error",
+        text: "Please select location by pressing the 'Pin Location' button",
+        type: "error",
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "OK",
+        closeOnConfirm: true
+      });
+    }
   }
 
 }
