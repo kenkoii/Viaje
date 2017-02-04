@@ -11,6 +11,7 @@ export class HomepageComponent implements OnInit {
   private role: string;
   private formText: string;
   private safezones: any;
+  private loader: Boolean = true;
   posts: FirebaseListObservable<any>;
   constructor(private af: AngularFire) {
     this.role = localStorage.getItem('role');
@@ -23,6 +24,7 @@ export class HomepageComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.loader = false;
   }
 
   submitPost(){
