@@ -66,5 +66,106 @@
   </section>
 </main>
 
+<main *ngIf="userService.isLoggedIn" >
+    <section class="cta-section landing">
+      <div class="cta-card mob-scale">
+        <h1>V I A J E</h1>
+        <a href="#" class="cta-btn">Sign Up</a> 
+      </div>
+    </section>
+    <section class="feature-section landing">
+      <div class="row">
+        <div class="feature-card mob-scale">
+          <div class="feat-group">
+            <div class="col-1">
+              <div class="feat-box">
+                <div class="feat-img">
+                  <img src="assets/icons/icon1.png">
+                </div>
+                <div class="feat-desc">
+                  <h3 class="text-center">Track</h3>
+                  <h5 class="text-center">Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet</h5>
+                </div>  
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="feat-box">
+                <div class="feat-img">
+                  <img src="assets/icons/icon2.png">
+                </div>
+                <div class="feat-desc">
+                  <h3 class="text-center">Post</h3>
+                  <h5 class="text-center">Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet</h5>
+                </div>  
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="feat-box">
+                <div class="feat-img">
+                  <img src="assets/icons/icon2.png">
+                </div>
+                <div class="feat-desc">
+                  <h3 class="text-center">Advertise</h3>
+                  <h5 class="text-center">Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet</h5>
+                </div>  
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="feat-box">
+                <div class="feat-img">
+                  <img src="assets/icons/icon3.png">
+                </div>
+                <div class="feat-desc">
+                  <h3 class="text-center">Find</h3>
+                  <h5 class="text-center">Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet</h5>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="team-section landing">
+      <div class="team-card mob-scale">
+        <div class="row">
+          <div class="team-group">
+            <div class="col-1">
+              <div class="team-box">
+                <div class="team-img">
+                  <img src="assets/team/team1.jpg">
+                </div>
+                <div class="team-desc">
+                  <h3 class="white-text text-center">Hustler</h3>
+                  <h5 class="white-text text-center">Jimmy Razaga</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="team-box">
+                <div class="team-img">
+                  <img src="assets/team/team2.jpg">
+                </div>
+                <div class="team-desc">
+                  <h3 class="white-text text-center">Hacker</h3>
+                  <h5 class="white-text text-center">Elyr Gressin Rosales</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="team-box">
+                <div class="team-img">
+                  <img src="assets/team/team3.jpg">
+                </div>
+                <div class="team-desc">
+                  <h3 class="white-text text-center">Hipster</h3>
+                  <h5 class="white-text text-center">Ara Oblan</h5>
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </section>
+</main>
 
 <app-admin-home *ngIf="role == 'admin'"></app-admin-home>
