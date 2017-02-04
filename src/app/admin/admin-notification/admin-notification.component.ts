@@ -8,6 +8,7 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 })
 export class AdminNotificationComponent implements OnInit {
   safezones: FirebaseListObservable<any>;
+  emergencies: FirebaseListObservable<any>;
   constructor(af: AngularFire) {
       this.safezones = af.database.list('/users', {
         query: {
@@ -16,6 +17,9 @@ export class AdminNotificationComponent implements OnInit {
           limitToLast: 10
         }
       });
+
+      this.emergencies = af.database.list('/emergencies');
+
   }
 
   ngOnInit() {
