@@ -67,4 +67,8 @@ export class UserService {
   getRole(){
     return localStorage.getItem('role') || ''
   }
+
+  getUser(){
+    return this.user;
+  }
 }

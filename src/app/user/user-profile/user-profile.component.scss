@@ -1,0 +1,21 @@
+@import "src/styles.scss";
+
+main{
+  width: 100%;
+  section{
+    width: 100%;
+    margin: 0 auto;
+    .cover-photo{
+      width: 100%;
+      height: 200px;
+      background: rgba(0,0,0,0.2);
+    }
+    .prof-card{
+      width: 1024px;
+      margin: 0 auto;
+      h1{
+        color: $emerald;
+      }
+    }
+  }
+}

@@ -1,19 +1,26 @@
 <main>
   <!-- TODO: BICBIC fix grid-->
   <section>
-    <h2>
-      Subscription
-    </h2>
-    <div class="notification" *ngFor="let safezone of safezones | async">
-      <span><strong>{{safezone.shop_name}}</strong> has subscribed.</span>
+    <div class="row">
+      <div class="col-2">        
+        <h2>
+          Subscription
+        </h2>
+        <div class="notification" *ngFor="let safezone of safezones | async">
+          <span><strong>{{safezone.shop_name}}</strong> has subscribed.</span>
+        </div>
+      </div>
+      <div class="col-2">
+        <h2>
+          Emergency
+        </h2>
+        <div class="notification" *ngFor="let emergency of emergencies | async">
+          <span><strong>{{emergency.description}}</strong> {{emergency.email}}</span>
+        </div>
+      </div>  
     </div>
   </section>
   <section>
-    <h2>
-      Emergency
-    </h2>
-    <div class="notification" *ngFor="let emergency of emergencies | async">
-      <span><strong>{{emergency.description}}</strong> {{emergency.email}}</span>
-    </div>
+    
   </section>
 </main>
