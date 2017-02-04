@@ -12,7 +12,12 @@
 			<li routerLink="/admin/notifications"> <span>NOTIFICATIONS</span></li>
 			<li routerLink="/user"><span> PROFILE </span></li>
 		</ul>
-		<ul class="" *ngIf="userService.getRole()=='motorist' || userService.getRole()=='safezone'" [class.active]="!isMenuClose">
+		<ul class="" *ngIf="userService.getRole()=='safezone'" [class.active]="!isMenuClose">
+			<li routerLink="/admin/safezones"> <span>SAFEZONES</span></li>
+			<li routerLink="/safezone/notifications"> <span>NOTIFICATIONS</span></li>
+			<li routerLink="/user"><span> PROFILE </span></li>
+		</ul>
+		<ul class="" *ngIf="userService.getRole()=='motorist'" [class.active]="!isMenuClose">
 			<li routerLink="/user"><span> PROFILE </span></li>
 		</ul>
 	</nav>

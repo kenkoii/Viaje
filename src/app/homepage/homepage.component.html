@@ -1,6 +1,36 @@
-<p *ngIf="role == 'safezone'">
-  homepage works!
-</p>
+<main *ngIf="role == 'safezone'">
+  <section>
+    <div class="post-container">
+      <!-- <form>
+        <h3>What concerns you? Let us know.</h3>
+        <textarea placeholder="What's on your mind" [(ngModel)]="formText" [ngModelOptions]="{standalone: true}"> </textarea><br>
+        <button (click)="submitPost()" name="button">Post</button>
+      </form> -->
+      <!--TODO: Adjust View and add Header/Title-->
+      <div class="posts">
+        <div class="motorist-post" *ngFor="let post of posts | async">
+          <h5>{{post.user.given_name + ' ' + post.user.family_name}} • <span>{{post.timestamp | date: 'h:mm a'}}</span></h5>
+          <p>{{post.text}}</p>
+            <app-comment [post]="post.$key"></app-comment>
+          <input #comment type="text" placeholder="comment here">
+          <button type="button" (click)="submitComment(post,comment.value)">Submit</button>
+        </div>
+      </div>
+    </div>
+    <ul class="action-bar">
+      <li>
+        <button name="button">Safe Zones</button>
+      </li>
+      <li>
+        <button name="button">Pin Location</button>
+      </li>
+      <li>
+        <button name="button">Add Route</button>
+      </li>
+    </ul>
+    <app-map [markers]="safezones"></app-map>
+  </section>
+</main>
 
 <main *ngIf="role == 'motorist'">
   <section>
