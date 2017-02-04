@@ -62,7 +62,7 @@ main{
         }
         .posts{
           padding: 10px;
-          height: calc(100% - 158px);
+          height: 100%;
           overflow-y: auto;
           .motorist-post{
             @include animate-slide-up(0px);

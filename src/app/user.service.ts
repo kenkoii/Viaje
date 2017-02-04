@@ -72,6 +72,9 @@ export class UserService {
     return localStorage.getItem('role') || ''
   }
 
+  getUser(){
+    return this.user;
+  }
   getServiceType(){
     return this.safezone_type;
   }

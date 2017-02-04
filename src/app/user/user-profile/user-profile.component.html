@@ -1,7 +1,29 @@
-<p>
-  user-profile works!
-</p>
 
-<div>
-    <a (click)="onLogout()">Logout</a>
-</div>
+<main>
+	<section>
+		<div class="prof-card">
+			<div *ngIf="user.type == 'admin'">
+				<h1>{{user.given_name}} {{user.family_name}}</h1>
+				<h3>{{user.email_address}} {{user.contact_number}}</h3>
+				<h3>{{user.address}}</h3>
+			</div>
+			<div *ngIf="user.type == 'motorist'">
+				<h1>{{user.given_name}} {{user.family_name}}</h1>
+				<h3>{{user.email_address}} {{user.contact_number}}</h3>
+				<h3>{{user.address}}</h3>
+				<h3>{{user.license_number}}</h3>
+				<h3>{{user.vehicle_information_model_year}}</h3>
+				<h3>{{user.vehicle_information_plate_number}}</h3>
+				<h3>{{user.vehicle_information_vehicle_type}}</h3>
+			</div>
+			<div *ngIf="user.type == 'safezone'">
+				<h1>{{user.owner}}</h1>
+				<h3>{{user.shop_name}}</h3>
+				<h3>{{user.service_information_type}}</h3>
+				<h3>{{user.email_address}}</h3>
+				<h3>{{user.address.address}} {{user.contact_number}}</h3>
+			</div>
+			<button (click)="onLogout()">Logout</button>	
+		</div>
+	</section>
+</main>
