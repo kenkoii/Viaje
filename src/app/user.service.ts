@@ -25,6 +25,7 @@ export class UserService {
           provider: AuthProviders.Password,
           method: AuthMethods.Password,
         }).then((data)=>{
+            console.log(data);
             this.af.database.list('/users/', {
               query: {
                 orderByChild: 'email_address',

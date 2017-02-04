@@ -26,6 +26,7 @@
 			<span class="patty"></span>
 			<span class="bottom"></span>
 		</button>
+		<!-- <ul [class.active]="!isMenuClose"> -->
 		<ul [class.active]="!isMenuClose" *ngIf="userService.getRole() == 'motorist' || userService.getRole() == 'safezone' || userService.getRole() == ''">
 			<li routerLink="/user">LOGIN</li>
 		</ul>

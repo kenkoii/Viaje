@@ -5,6 +5,7 @@
           <h1>Sign in </h1>
           <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="email_address"> <br>
           <input type="password" name="password" value="" placeholder="Password" [(ngModel)]="password"> <br>
+          <!-- <app-loader></app-loader> -->
           <button (click)="onLogin()" name="button">Signin</button>
         </form>
         <p>or sign up <a routerLink="/signup">here</a></p>

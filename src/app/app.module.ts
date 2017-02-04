@@ -27,6 +27,7 @@ import { AdminNotificationComponent } from './admin/admin-notification/admin-not
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CommentComponent } from './comment/comment.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 const myFirebaseConfig = {
@@ -56,7 +57,8 @@ const myFirebaseAuthConfig = {
     UserLoginComponent,
     UserProfileComponent,
     HomepageComponent,
-    CommentComponent
+    CommentComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
