@@ -8,7 +8,7 @@ declare var swal: any;
 @Injectable()
 export class UserService {
   public UserAuthState: FirebaseAuthState;
-  public user: any;
+  public user: any = JSON.parse(localStorage.getItem('user')) || {};
   public safezone_type: string;
   constructor(private http: Http, public af: AngularFire,  private router: Router) {
     this.af.auth.subscribe(
