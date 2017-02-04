@@ -6,7 +6,7 @@
           <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="email_address"> <br>
           <input type="password" name="password" value="" placeholder="Password" [(ngModel)]="password"> <br>
           <!-- <app-loader></app-loader> -->
-          <button (click)="onLogin()" name="button">Signin</button>
+          <button *ngIf="!loading" (click)="onLogin()" name="button">Signin</button><app-loader *ngIf="loading"></app-loader>
         </form>
         <p>or sign up <a routerLink="/signup">here</a></p>
     </div>

@@ -15,6 +15,7 @@ export class SafezoneFormComponent implements OnInit {
   public address : Object;
   public addressForm: string;
   private isLocationModalOpen: boolean = false;
+  private loading: boolean = false;
 
   constructor( private af: AngularFire, private router: Router ) { }
 
@@ -51,6 +52,7 @@ export class SafezoneFormComponent implements OnInit {
   }
 
   onSignupSafezone() {
+    this.loading = !this.loading;
     if(this.safezone.address){
       this.af.auth.createUser({
           email: this.safezone.email_address,
