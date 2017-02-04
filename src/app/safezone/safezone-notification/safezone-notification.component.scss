@@ -1,0 +1,28 @@
+@import "src/styles.scss";
+@import "src/grid.scss";
+
+main{
+  section{
+    h2{
+      font-weight: 300;
+      color: $nephritis;
+    }
+    .notification{
+      @include animate-appear;
+      padding: 20px;
+      border-radius: 9px;
+      margin-bottom: 10px;
+      &:nth-child(even){
+        background: rgba(0,0,0,0.1);
+      }
+      span{
+        border-radius: 9px;
+        padding: 10px;
+        color: rgba(0,0,0,0.3);
+        strong{
+          color: $wet-asphalt;
+        }
+      }
+    }
+  }
+}

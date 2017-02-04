@@ -28,6 +28,7 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
 import { HomepageComponent } from './homepage/homepage.component';
 import { CommentComponent } from './comment/comment.component';
 import { LoaderComponent } from './loader/loader.component';
+import { SafezoneNotificationComponent } from './safezone/safezone-notification/safezone-notification.component';
 
 
 const myFirebaseConfig = {
@@ -58,7 +59,8 @@ const myFirebaseAuthConfig = {
     UserProfileComponent,
     HomepageComponent,
     CommentComponent,
-    LoaderComponent
+    LoaderComponent,
+    SafezoneNotificationComponent
   ],
   imports: [
     BrowserModule,

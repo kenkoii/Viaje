@@ -9,6 +9,7 @@ declare var swal: any;
 export class UserService {
   public UserAuthState: FirebaseAuthState;
   public user: any;
+  public safezone_type: string;
   constructor(private http: Http, public af: AngularFire,  private router: Router) {
     this.af.auth.subscribe(
               auth => {
@@ -35,6 +36,9 @@ export class UserService {
               this.user = res[0];
               localStorage.setItem('role',this.user.type)
               console.log(this.user);
+              if(this.user.service_information_type){
+                  this.safezone_type = this.user.service_information_type;
+              }
               localStorage.setItem('user',JSON.stringify(this.user));
               if(this.user.type == 'admin'){
                 this.router.navigateByUrl('admin');
@@ -66,5 +70,9 @@ export class UserService {
 
   getRole(){
     return localStorage.getItem('role') || ''
+  }
+
+  getServiceType(){
+    return this.safezone_type;
   }
 }

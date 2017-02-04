@@ -1,0 +1,11 @@
+<main>
+  <!-- TODO: BICBIC fix grid-->
+  <section>
+    <h2>
+      Emergency
+    </h2>
+    <div class="notification" *ngFor="let emergency of emergencies | async">
+      <span><strong>{{emergency.description}}</strong> {{emergency.email}}</span>
+    </div>
+  </section>
+</main>
