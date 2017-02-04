@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import 'rxjs/add/operator/map';
-
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -13,7 +13,7 @@ export class HomepageComponent implements OnInit {
   private safezones: any;
   private loader: Boolean = true;
   posts: FirebaseListObservable<any>;
-  constructor(private af: AngularFire) {
+  constructor(private af: AngularFire, private userService: UserService) {
     this.role = localStorage.getItem('role');
     this.posts = this.af.database.list('/posts').map((arr)=>{return arr.reverse();}) as FirebaseListObservable<any[]>;
     this.safezones = af.database.list('/users', {
