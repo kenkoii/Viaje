@@ -12,14 +12,14 @@ declare var swal: any;
 export class MotoristFormComponent implements OnInit {
 
   public motorist = new Motorist();
-
+  private loading: boolean = false;
   constructor( private af: AngularFire, private router: Router ) { }
 
   ngOnInit() {
   }
 
   onSignup() {
-
+      this.loading = !this.loading;
       //Call firebase createuser
       this.af.auth.createUser({
           email: this.motorist.email_address,

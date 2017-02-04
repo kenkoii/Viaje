@@ -1,11 +1,11 @@
 <main *ngIf="role == 'safezone'">
   <section>
     <div class="post-container">
-      <!-- <form>
-        <h3>What concerns you? Let us know.</h3>
+      <form>
+        <h3>Post an advertisement</h3>
         <textarea placeholder="What's on your mind" [(ngModel)]="formText" [ngModelOptions]="{standalone: true}"> </textarea><br>
         <button (click)="submitPost()" name="button">Post</button>
-      </form> -->
+      </form>
       <!--TODO: Adjust View and add Header/Title-->
       <div class="posts">
         <div class="motorist-post" *ngFor="let post of posts | async">
@@ -66,5 +66,5 @@
   </section>
 </main>
 
-<!-- <app-loader [isLoad]="loader"></app-loader> -->
+
 <app-admin-home *ngIf="role == 'admin'"></app-admin-home>
