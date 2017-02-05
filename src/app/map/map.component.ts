@@ -22,7 +22,10 @@ class Marker{
 export class MapComponent implements OnInit, OnChanges {
   @Input() markers: any;
   @Input() onlineusers: any;
+  @Input() posts: any;
   @Output() mapClick = new EventEmitter();
+  private _markers: any;
+  private _posts: any;
   constructor() { }
 
   ngOnInit() {
@@ -30,17 +33,24 @@ export class MapComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     console.log(this.onlineusers);
-    // this.markers.subscribe(
-    //   res => {
-    //     this.safezones = res;
-    //   },
-    //   err => {
-    //     console.log(err);
-    //   },
-    //   () => {
-    //     this.safezones[0]
-    //   });
+    this._markers = this.markers;
+    this._posts = this.posts;
+  }
 
+  toggleSafezones(){
+    if(this._markers){
+      this._markers = null;
+    }else{
+      this._markers = this.markers;
+    }
+  }
+
+  togglePosts(){
+    if(this._posts){
+      this._posts = null;
+    }else{
+      this._posts = this.posts;
+    }
   }
 
   mapClicked($event: MouseEvent) {

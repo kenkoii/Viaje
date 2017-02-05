@@ -1,5 +1,16 @@
+<ul class="action-bar">
+  <li>
+    <button name="button" (click)="toggleSafezones()">Safe Zones</button>
+  </li>
+  <li>
+    <button name="button" (click)="togglePosts()">User Posts</button>
+  </li>
+  <!-- <li>
+    <button name="button">Add Route</button>
+  </li> -->
+</ul>
 <div>
-  <sebm-google-map *ngIf="onlineusers || markers" [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
+  <sebm-google-map *ngIf="onlineusers || markers || posts" [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
     <sebm-google-map-marker *ngFor="let user of onlineusers | async" [latitude]="user.latitude" [longitude]="user.longitude" [visible]="true" [iconUrl]="getIcon(user.motorist.type)">
       <sebm-google-map-info-window>
         <h2>{{user.motorist.username}} <span>{{user.motorist.given_name + ' ' + user.motorist.family_name}}</span></h2>
@@ -7,10 +18,22 @@
         <p>Plate No. {{user.motorist.vehicle_information_plate_number}} • <span>Type {{user.motorist.vehicle_information_vehicle_type}}</span> • {{user.motorist.vehicle_information_model_year}}</p>
       </sebm-google-map-info-window>
     </sebm-google-map-marker>
-    <sebm-google-map-marker *ngFor="let item of markers | async" [latitude]="item.address.lat" [longitude]="item.address.lng" [visible]="true" [iconUrl]="getIcon(item.service_information_type)">
+    <sebm-google-map-marker *ngFor="let item of _markers | async" [latitude]="item.address.lat" [longitude]="item.address.lng" [visible]="true" [iconUrl]="getIcon(item.service_information_type)">
       <sebm-google-map-info-window>
         <h2>{{item.shop_name}}</h2>
         <p>{{item.contact_number}} • <span>{{item.address.address}}</span></p>
+      </sebm-google-map-info-window>
+    </sebm-google-map-marker>
+
+    <sebm-google-map-marker *ngFor="let post of _posts | async" [latitude]="post.lat" [longitude]="post.lng" [visible]="true">
+      <sebm-google-map-info-window>
+        <div class="motorist-post">
+          <h5>{{post.user.given_name + ' ' + post.user.family_name}} • <span>{{post.timestamp | date: 'h:mm a'}}</span></h5>
+          <p>{{post.text}}</p>
+            <app-comment [post]="post.$key"></app-comment>
+          <input #comment type="text" placeholder="comment here">
+          <button type="button" (click)="submitComment(post,comment.value)">Submit</button>
+        </div>
       </sebm-google-map-info-window>
     </sebm-google-map-marker>
   </sebm-google-map>
