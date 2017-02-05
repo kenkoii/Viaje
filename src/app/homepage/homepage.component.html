@@ -66,11 +66,11 @@
   </section>
 </main>
 
-<main *ngIf="userService.isLoggedIn" >
+<main *ngIf="!userService.isLoggedIn()" >
     <section class="cta-section landing">
       <div class="cta-card mob-scale">
         <h1>V I A J E</h1>
-        <a href="#" class="cta-btn">Sign Up</a> 
+        <a href="#" class="cta-btn">Sign Up</a>
       </div>
     </section>
     <section class="feature-section landing">
@@ -85,7 +85,7 @@
                 <div class="feat-desc">
                   <h3 class="text-center">Track</h3>
                   <h5 class="text-center">Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet</h5>
-                </div>  
+                </div>
               </div>
             </div>
             <div class="col-1">
@@ -96,7 +96,7 @@
                 <div class="feat-desc">
                   <h3 class="text-center">Post</h3>
                   <h5 class="text-center">Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet</h5>
-                </div>  
+                </div>
               </div>
             </div>
             <div class="col-1">
@@ -107,7 +107,7 @@
                 <div class="feat-desc">
                   <h3 class="text-center">Advertise</h3>
                   <h5 class="text-center">Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet</h5>
-                </div>  
+                </div>
               </div>
             </div>
             <div class="col-1">
@@ -118,7 +118,7 @@
                 <div class="feat-desc">
                   <h3 class="text-center">Find</h3>
                   <h5 class="text-center">Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet, Lorem Ipsum Dolor Sit Amet</h5>
-                </div>  
+                </div>
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
         </div>
       </div>
     </section>
