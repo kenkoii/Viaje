@@ -69,7 +69,8 @@ const myFirebaseAuthConfig = {
     ROUTING,
     AngularFireModule.initializeApp(myFirebaseConfig, myFirebaseAuthConfig),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBAe8thTIIikNvgLp7DDLNK0OeFOUyLf9o'
+      apiKey: 'AIzaSyBAe8thTIIikNvgLp7DDLNK0OeFOUyLf9o',
+      libraries: ['visualization']
     })
   ],
   providers: [UserService,AuthGuard,AdminGuard],
