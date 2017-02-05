@@ -18,14 +18,15 @@
         <p>Plate No. {{user.motorist.vehicle_information_plate_number}} • <span>Type {{user.motorist.vehicle_information_vehicle_type}}</span> • {{user.motorist.vehicle_information_model_year}}</p>
       </sebm-google-map-info-window>
     </sebm-google-map-marker>
-    <sebm-google-map-marker *ngFor="let item of _markers | async" [latitude]="item.address.lat" [longitude]="item.address.lng" [visible]="true" [iconUrl]="getIcon(item.service_information_type)">
+
+    <sebm-google-map-marker *ngFor="let item of markers | async" [latitude]="item.address.lat" [longitude]="item.address.lng" [visible]="safezoneVisibility" [iconUrl]="getIcon(item.service_information_type)">
       <sebm-google-map-info-window>
         <h2>{{item.shop_name}}</h2>
         <p>{{item.contact_number}} • <span>{{item.address.address}}</span></p>
       </sebm-google-map-info-window>
     </sebm-google-map-marker>
 
-    <sebm-google-map-marker *ngFor="let post of _posts | async" [latitude]="post.lat" [longitude]="post.lng" [visible]="true">
+    <sebm-google-map-marker *ngFor="let post of posts | async" [latitude]="post.lat" [longitude]="post.lng" [visible]="postsVisibility">
       <sebm-google-map-info-window>
         <div class="motorist-post">
           <h5>{{post.user.given_name + ' ' + post.user.family_name}} • <span>{{post.timestamp | date: 'h:mm a'}}</span></h5>

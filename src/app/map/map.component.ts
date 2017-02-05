@@ -24,8 +24,8 @@ export class MapComponent implements OnInit, OnChanges {
   @Input() onlineusers: any;
   @Input() posts: any;
   @Output() mapClick = new EventEmitter();
-  private _markers: any;
-  private _posts: any;
+  private safezoneVisibility: boolean = true;
+  private postsVisibility: boolean = true;
   constructor() { }
 
   ngOnInit() {
@@ -33,24 +33,14 @@ export class MapComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     console.log(this.onlineusers);
-    this._markers = this.markers;
-    this._posts = this.posts;
   }
 
   toggleSafezones(){
-    if(this._markers){
-      this._markers = null;
-    }else{
-      this._markers = this.markers;
-    }
+    this.safezoneVisibility = !this.safezoneVisibility;
   }
 
   togglePosts(){
-    if(this._posts){
-      this._posts = null;
-    }else{
-      this._posts = this.posts;
-    }
+    this.postsVisibility = !this.postsVisibility;
   }
 
   mapClicked($event: MouseEvent) {
