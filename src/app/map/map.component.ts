@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angu
 import { SebmGoogleMap } from 'angular2-google-maps/core';
 import { MapsAPILoader } from 'angular2-google-maps/core';
 import { GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 declare var google: any;
 class Marker{
@@ -28,10 +29,11 @@ export class MapComponent implements OnInit, OnChanges {
   @Input() posts: any;
   @Output() mapClick = new EventEmitter();
   private heatmap: any;
+  private formText: any;
   private safezoneVisibility: boolean = true;
   private postsVisibility: boolean = true;
   private _map: any;
-  constructor(mapsAPILoader: MapsAPILoader) {
+  constructor(mapsAPILoader: MapsAPILoader, private af: AngularFire) {
 
   }
 
@@ -52,6 +54,22 @@ export class MapComponent implements OnInit, OnChanges {
     this.postsVisibility = !this.postsVisibility;
   }
 
+  submitComment(post: any, text: string){
+    let user = JSON.parse(localStorage.getItem('user'));
+    delete user.$key;
+    console.log(user);
+    console.log(post);
+    let comment = {
+         timestamp: Date.now(),
+         user: user,
+         text: text
+    };
+    //Push post to firebase.
+    let postComment = this.af.database.list('/posts/'+post.$key+'/comments');
+    postComment.push(comment);
+    this.formText = "";
+  }
+
   mapClicked($event: MouseEvent) {
     console.log("Hello");
     if(!this.onlineusers && !this.markers){
@@ -62,7 +80,7 @@ export class MapComponent implements OnInit, OnChanges {
   }
 
   getIcon(type){
-    return "assets/icons/"+type+".png";
+    return "assets/icons/"+type+".svg";
   }
 
 }
