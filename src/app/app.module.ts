@@ -29,6 +29,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { CommentComponent } from './comment/comment.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SafezoneNotificationComponent } from './safezone/safezone-notification/safezone-notification.component';
+import { HeatMapComponent } from './heat-map/heat-map.component';
 
 
 const myFirebaseConfig = {
@@ -60,7 +61,8 @@ const myFirebaseAuthConfig = {
     HomepageComponent,
     CommentComponent,
     LoaderComponent,
-    SafezoneNotificationComponent
+    SafezoneNotificationComponent,
+    HeatMapComponent
   ],
   imports: [
     BrowserModule,

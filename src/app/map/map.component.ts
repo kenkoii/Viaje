@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 import { SebmGoogleMap } from 'angular2-google-maps/core';
+import { MapsAPILoader } from 'angular2-google-maps/core';
+import { GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
 
+declare var google: any;
 class Marker{
   service_information_type: string;
   shop_name: string;
@@ -24,15 +27,21 @@ export class MapComponent implements OnInit, OnChanges {
   @Input() onlineusers: any;
   @Input() posts: any;
   @Output() mapClick = new EventEmitter();
+  private heatmap: any;
   private safezoneVisibility: boolean = true;
   private postsVisibility: boolean = true;
-  constructor() { }
+  private _map: any;
+  constructor(mapsAPILoader: MapsAPILoader) {
+
+  }
 
   ngOnInit() {
+
   }
 
   ngOnChanges() {
     console.log(this.onlineusers);
+
   }
 
   toggleSafezones(){
