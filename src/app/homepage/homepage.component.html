@@ -3,8 +3,8 @@
     <div class="post-container">
       <form>
         <h3>Post an advertisement</h3>
-        <textarea placeholder="What's on your mind" [(ngModel)]="formText" [ngModelOptions]="{standalone: true}"> </textarea><br>
-        <button (click)="submitPost()" name="button">Post</button>
+        <textarea #adText placeholder="What do you want to advertise?" [ngModelOptions]="{standalone: true}"> </textarea><br>
+        <button (click)="submitAdvertisement(adText)" name="button">Post</button>
       </form>
       <!--TODO: Adjust View and add Header/Title-->
       <div class="posts">

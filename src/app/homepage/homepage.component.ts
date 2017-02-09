@@ -27,25 +27,23 @@ export class HomepageComponent implements OnInit {
     this.loader = false;
   }
 
+  submitAdvertisement(adText: string){
+    let user = JSON.parse(localStorage.getItem('user'));
+    delete user.$key;
+    console.log(user);
+    let post = {
+         lat: 1,
+         lng: 1,
+         timestamp: Date.now(),
+         user: user,
+         text: this.formText
+    };
+    //Push post to firebase.
+    this.posts.push(post);
+    this.formText = "";
+  }
+
   submitPost(){
-    // if (navigator.geolocation) {
-    //
-    //   console.log("Nilusot");
-    //     navigator.geolocation.getCurrentPosition(position => {
-    //       let post = {
-    //            lat: 1,
-    //            lng: 1,
-    //            timestamp: Date.now(),
-    //            user: JSON.parse(localStorage.getItem('user')),
-    //            text: this.formText
-    //       };
-    //       //Push post to firebase.
-    //       this.posts.push(post);
-    //       console.log("Nilusot diri");
-    //     });
-    // } else {
-    //     console.log("wa kapasar");
-    // }
     let user = JSON.parse(localStorage.getItem('user'));
     delete user.$key;
     console.log(user);
