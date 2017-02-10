@@ -11,9 +11,9 @@
       <!--TODO: Adjust View and add Header/Title-->
       <div class="posts">
         <div class="motorist-post" *ngFor="let advertisement of advertisements | async">
-          <h5>{{advertisement.title}} • <span>{{advertisement.timestamp | date: 'h:mm a'}}</span></h5>
+          <h5>{{advertisement.user.shop_name}} • <span>{{advertisement.timestamp | date: 'h:mm a'}}</span></h5>
           <img [src]="advertisement.img">
-          <h6>{{advertisement.user.shop_name}}</h6>
+          <h6>{{advertisement.title}}</h6>
           <p>{{advertisement.text}}</p>
         </div>
       </div>
@@ -42,13 +42,21 @@
         <button (click)="submitPost()" name="button">Post</button>
       </form> -->
       <!--TODO: Adjust View and add Header/Title-->
-      <div class="posts">
+      <!--<div class="posts">
         <div class="motorist-post" *ngFor="let post of posts | async">
           <h5>{{post.user.given_name + ' ' + post.user.family_name}} • <span>{{post.timestamp | date: 'h:mm a'}}</span></h5>
           <p>{{post.text}}</p>
             <app-comment [post]="post.$key"></app-comment>
           <input #comment type="text" placeholder="comment here">
           <button type="button" (click)="submitComment(post,comment.value)">Submit</button>
+        </div>
+      </div>-->
+      <div class="posts">
+        <div class="motorist-post" *ngFor="let advertisement of advertisements | async">
+          <h5>{{advertisement.user.shop_name}} • <span>{{advertisement.timestamp | date: 'h:mm a'}}</span></h5>
+          <img [src]="advertisement.img">
+          <h6>{{advertisement.title}}</h6>
+          <p>{{advertisement.text}}</p>
         </div>
       </div>
     </div>
