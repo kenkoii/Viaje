@@ -1,7 +1,7 @@
 <main>
   <section>
     <div class="row">
-       <div class="col-1">        
+       <div class="col-1-med">
         <h2>
           Announcement
         </h2>
@@ -10,30 +10,41 @@
           <textarea #aText placeholder="What do you want to announce?"> </textarea><br>
           <button (click)="submitAnnouncement(aText.value)" name="button">Post</button>
         </form>
-        <div class="notification" *ngFor="let announcement of announcements | async">
+        <div class="notification announcement" *ngFor="let announcement of announcements | async">
           <span><strong>{{announcement.message}}</strong></span>
           <h6>{{announcement.timestamp | date: 'h:mm a'}}</h6>
+          <div class="action">
+            <button name="button"><i class="remove circle icon"></i></button>
+          </div>
         </div>
       </div>
-      <div class="col-1">        
+      <div class="col-1-med">
         <h2>
           Subscription
         </h2>
-        <div class="notification" *ngFor="let safezone of safezones | async">
+        <div class="notification subscribe" *ngFor="let safezone of safezones | async">
           <span><strong>{{safezone.shop_name}}</strong> has subscribed.</span>
+          <div class="action">
+            <button name="button"><i class="check circle icon"></i></button>
+            <button name="button"><i class="remove circle icon"></i></button>
+          </div>
         </div>
       </div>
-      <div class="col-1">
+      <div class="col-1-med">
         <h2>
           Emergency
         </h2>
-        <div class="notification" *ngFor="let emergency of emergencies | async">
+        <div class="notification emergency" *ngFor="let emergency of emergencies | async">
           <span><strong>{{emergency.description}}</strong> {{emergency.email}}</span>
+          <div class="action">
+            <button name="button"><i class="check circle icon"></i></button>
+            <button name="button"><i class="remove circle icon"></i></button>
+          </div>
         </div>
-      </div>  
+      </div>
     </div>
   </section>
   <section>
-    
+
   </section>
 </main>
