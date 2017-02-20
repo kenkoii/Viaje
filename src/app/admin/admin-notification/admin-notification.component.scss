@@ -12,6 +12,35 @@ main{
       padding: 20px;
       border-radius: 9px;
       margin-bottom: 10px;
+      position: relative;
+      &:hover{
+        .action{
+          @include animate-appear;
+          display: block;
+        }
+      }
+      .action{
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        button{
+          padding: 10px;
+          background: transparent;
+          color: $wet-asphalt;
+          border: none;
+          &:hover{
+            i.check{
+              color: $emerald;
+            }
+            i.remove{
+              color: $alizarin;
+            }
+          }
+        }
+      }
+      &.announcement{
+      }
       &:nth-child(even){
         background: rgba(0,0,0,0.1);
       }
