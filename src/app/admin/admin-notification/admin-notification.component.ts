@@ -9,6 +9,7 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 export class AdminNotificationComponent implements OnInit {
   safezones: FirebaseListObservable<any>;
   emergencies: FirebaseListObservable<any>;
+  announcements: FirebaseListObservable<any>;
   constructor(af: AngularFire) {
       this.safezones = af.database.list('/users', {
         query: {
@@ -20,9 +21,22 @@ export class AdminNotificationComponent implements OnInit {
 
       this.emergencies = af.database.list('/emergencies');
 
+      this.announcements = af.database.list('/announcements');
+      // TODO Add form for announcements
+      // TODO Add map modal for emergencies
+
+
   }
 
   ngOnInit() {
+  }
+
+  submitAnnouncement(text: string){
+    let announcement = {
+      message: text,
+      timestamp: Date.now()
+    }
+    this.announcements.push(announcement);
   }
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'app-user-login',
@@ -17,7 +16,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   onLogin(){
-    this.loading = !this.loading;
+    this.userService.loading = !this.userService.loading;
     this.userService.userLogin(this.email_address, this.password);
   }
 

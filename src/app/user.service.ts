@@ -8,6 +8,7 @@ declare var swal: any;
 @Injectable()
 export class UserService {
   public UserAuthState: FirebaseAuthState;
+  public loading: boolean = false;
   public user: any = JSON.parse(localStorage.getItem('user')) || {};
   public safezone_type: string;
   constructor(private http: Http, public af: AngularFire,  private router: Router) {
@@ -34,27 +35,30 @@ export class UserService {
               }
             }).subscribe( res => {
               this.user = res[0];
-              localStorage.setItem('role',this.user.type)
+              localStorage.setItem('role', this.user.type);
               console.log(this.user);
-              if(this.user.service_information_type){
+              if(this.user.service_information_type) {
                   this.safezone_type = this.user.service_information_type;
               }
               localStorage.setItem('user',JSON.stringify(this.user));
-              if(this.user.type == 'admin'){
+              if (this.user.type === 'admin') {
                 this.router.navigateByUrl('admin');
-              }else{
+              }else {
                 this.router.navigateByUrl('');
               }
+              this.loading = !this.loading;
             });
-        }).catch((err)=>{
+        }).catch((err) => {
           swal({
-            title: "Login Error",
+            title: 'Login Error',
             text: err.message,
-            type: "error",
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "OK",
+            type: 'error',
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'OK',
             closeOnConfirm: true
           });
+          this.loading = !this.loading;
+
         });
   }
 

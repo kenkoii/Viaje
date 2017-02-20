@@ -1,8 +1,21 @@
 <main>
-  <!-- TODO: BICBIC fix grid-->
   <section>
     <div class="row">
-      <div class="col-2">        
+       <div class="col-1">        
+        <h2>
+          Announcement
+        </h2>
+        <form>
+        <h3>Post an announcement</h3>
+          <textarea #aText placeholder="What do you want to announce?"> </textarea><br>
+          <button (click)="submitAnnouncement(aText.value)" name="button">Post</button>
+        </form>
+        <div class="notification" *ngFor="let announcement of announcements | async">
+          <span><strong>{{announcement.message}}</strong></span>
+          <h6>{{announcement.timestamp | date: 'h:mm a'}}</h6>
+        </div>
+      </div>
+      <div class="col-1">        
         <h2>
           Subscription
         </h2>
@@ -10,7 +23,7 @@
           <span><strong>{{safezone.shop_name}}</strong> has subscribed.</span>
         </div>
       </div>
-      <div class="col-2">
+      <div class="col-1">
         <h2>
           Emergency
         </h2>
