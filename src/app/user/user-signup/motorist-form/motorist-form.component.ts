@@ -33,6 +33,7 @@ export class MotoristFormComponent implements OnInit {
               username: this.motorist.username,
               family_name: this.motorist.family_name,
               given_name: this.motorist.given_name,
+              profile_pic: 'http://hotscope.tv/files/default-profile.png',
               email_address: this.motorist.email_address,
               contact_number: this.motorist.contact_number,
               address: this.motorist.address,

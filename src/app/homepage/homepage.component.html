@@ -10,11 +10,12 @@
       </form>
       <!--TODO: Adjust View and add Header/Title-->
       <div class="posts">
-        <div class="motorist-post" *ngFor="let advertisement of advertisements | async">
+        <div class="motorist-post" *ngFor="let advertisement of ownadvertisements | async">
           <h5>{{advertisement.user.shop_name}} • <span>{{advertisement.timestamp | date: 'h:mm a'}}</span></h5>
           <img [src]="advertisement.img">
           <h6>{{advertisement.title}}</h6>
           <p>{{advertisement.text}}</p>
+           <button (click)="deleteAdvertisement(advertisement)" name="button">Delete</button>
         </div>
       </div>
     </div>
@@ -29,7 +30,7 @@
         <button name="button">Add Route</button>
       </li>
     </ul> -->
-    <app-map [markers]="safezones" [posts]="posts"></app-map>
+    <app-map [markers]="safezones" [posts]="posts" [onlineusers]="onlineusers" ></app-map>
   </section>
 </main>
 

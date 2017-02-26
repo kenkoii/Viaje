@@ -13,13 +13,23 @@ export class HomepageComponent implements OnInit {
   private safezones: any;
   private storageRef: any;
   private advertisements: FirebaseListObservable<any>;
+  private ownadvertisements: FirebaseListObservable<any>;
   private loader: Boolean = true;
   private file: File;
+  private onlineusers: FirebaseListObservable<any>;
   posts: FirebaseListObservable<any>;
   constructor(private af: AngularFire, private userService: UserService, @Inject(FirebaseApp) firebaseApp: any) {
+    let user = JSON.parse(localStorage.getItem('user'));
     this.storageRef = firebaseApp.storage().ref();
     this.role = localStorage.getItem('role');
-    this.advertisements = this.af.database.list('/advertisements').map((arr) => {return arr.reverse(); }) as FirebaseListObservable<any[]>;;
+    this.onlineusers = af.database.list('/online_users');
+    this.advertisements = this.af.database.list('/advertisements').map((arr) => {return arr.reverse(); }) as FirebaseListObservable<any[]>;
+    this.ownadvertisements = this.af.database.list('/advertisements', {
+      query: {
+        orderByChild: 'username',
+        equalTo: user.username
+      }
+    }).map((arr) => {return arr.reverse(); }) as FirebaseListObservable<any[]>;
     this.posts = this.af.database.list('/posts').map((arr) => {return arr.reverse(); }) as FirebaseListObservable<any[]>;
     this.safezones = af.database.list('/users', {
       query: {
@@ -47,6 +57,7 @@ export class HomepageComponent implements OnInit {
          user: user,
          text: adText.value,
          title: adTitle.value,
+         username: user.username,
          img: ''
     };
     // Push post to firebase.
@@ -62,6 +73,10 @@ export class HomepageComponent implements OnInit {
 
     adText.value = '';
     adTitle.value = '';
+  }
+
+  deleteAdvertisement(advertisement: any) {
+    this.advertisements.remove(advertisement.$key);
   }
 
   submitPost() {

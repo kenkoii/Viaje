@@ -10,6 +10,7 @@ export class AdminHomeComponent implements OnInit {
   onlineusers: FirebaseListObservable<any>;
   posts: FirebaseListObservable<any>;
   safezones: any;
+  selectedUser: any;
   constructor(af: AngularFire) {
     this.onlineusers = af.database.list('/online_users');
     this.posts = af.database.list('/posts').map((arr) => {return arr.reverse(); }) as FirebaseListObservable<any[]>;
@@ -19,6 +20,11 @@ export class AdminHomeComponent implements OnInit {
         equalTo: 'safezone'
       }
     });
+  }
+
+  setLocation(user: any) {
+    this.selectedUser = user;
+    console.log(user);
   }
 
   ngOnInit() {

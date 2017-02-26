@@ -8,8 +8,9 @@ import { UserService } from '../user.service';
 })
 export class NavbarComponent implements OnInit {
   private isMenuClose: boolean = true;
+  emergencies: any;
   constructor(private userService: UserService) {
-
+     
   }
 
   ngOnInit() {

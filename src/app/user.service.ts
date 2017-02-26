@@ -11,12 +11,20 @@ export class UserService {
   public loading: boolean = false;
   public user: any = JSON.parse(localStorage.getItem('user')) || {};
   public safezone_type: string;
+  emergencies: any;
   constructor(private http: Http, public af: AngularFire,  private router: Router) {
     this.af.auth.subscribe(
               auth => {
                 this.UserAuthState = auth;
               },
               err => console.log(err));
+    
+    this.emergencies = af.database.list('/emergencies', {
+        query: {
+          orderByChild: 'status',
+          equalTo: 'pending'
+        }
+      }).map( (arr) => { return arr.reverse(); } );
   }
 
   userLogin(email: string, password: string) {

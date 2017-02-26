@@ -3,20 +3,20 @@
   <!-- Motorist - Sign up Form -->
   <form class="">
       <h3>Personal Information: </h3>
-      <input type="text" name="username" value="" placeholder="Username" [(ngModel)]="motorist.username"> 
-      <input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="motorist.email_address"> 
-      <input type="password" name="password" value="" placeholder="Password" [(ngModel)]="motorist.password"> 
-      <input type="text" name="family_name" value="" placeholder="Family Name" [(ngModel)]="motorist.family_name"> 
-      <input type="text" name="given_name" value="" placeholder="Given Name" [(ngModel)]="motorist.given_name"> 
-      <input type="text" name="contact_number" value="" placeholder="Contact Number" [(ngModel)]="motorist.contact_number"> 
-      <input type="text" name="address" value="" placeholder="Address" [(ngModel)]="motorist.address"> 
-      <input type="text" name="license_number" value="" placeholder="License Number" [(ngModel)]="motorist.license_number"> 
+      <input type="text" required name="username" value="" placeholder="Username" [(ngModel)]="motorist.username"> 
+      <input type="email" required name="email_address" value="" placeholder="Email Address" [(ngModel)]="motorist.email_address"> 
+      <input type="password" required name="password" value="" placeholder="Password" [(ngModel)]="motorist.password"> 
+      <input type="text" required name="family_name" value="" placeholder="Family Name" [(ngModel)]="motorist.family_name"> 
+      <input type="text" required name="given_name" value="" placeholder="Given Name" [(ngModel)]="motorist.given_name"> 
+      <input type="text" required name="contact_number" value="" placeholder="Contact Number" [(ngModel)]="motorist.contact_number"> 
+      <input type="text" required name="address" value="" placeholder="Address" [(ngModel)]="motorist.address"> 
+      <input type="text" required name="license_number" value="" placeholder="License Number" [(ngModel)]="motorist.license_number"> 
 
       <h3>Vehicle Information: </h3>
-      <input type="text" name="vehicle_type" value="" placeholder="Vehicle Type" [(ngModel)]="motorist.vehicle_information_vehicle_type"> 
-      <input type="text" name="vehicle_information" value="" placeholder="Model Year" [(ngModel)]="motorist.vehicle_information_model_year"> 
-      <input type="text" name="vehicle_plate_number" value="" placeholder="Plate Number" [(ngModel)]="motorist.vehicle_information_plate_number"> 
+      <input type="text" required name="vehicle_type" value="" placeholder="Vehicle Type" [(ngModel)]="motorist.vehicle_information_vehicle_type"> 
+      <input type="text" required name="vehicle_information" value="" placeholder="Model Year" [(ngModel)]="motorist.vehicle_information_model_year"> 
+      <input type="text" required name="vehicle_plate_number" value="" placeholder="Plate Number" [(ngModel)]="motorist.vehicle_information_plate_number"> 
 
-      <button (click)="onSignup()" name="button">Signup</button>
+      <button (click)="onSignup()" type="submit">Signup</button>
   </form>
 </div>

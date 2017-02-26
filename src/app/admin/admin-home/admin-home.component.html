@@ -1,12 +1,12 @@
 <main>
   <section>
     <div class="container">
-      <div class="motorist"  *ngFor="let user of onlineusers | async">
+      <div class="motorist"  *ngFor="let user of onlineusers | async" (click)="setLocation(user)">
         <h2>{{user.motorist.username}} <span>{{user.motorist.given_name + ' ' + user.motorist.family_name}}</span></h2>
         <p>{{user.motorist.contact_number}} • <span>{{user.motorist.address}}</span></p>
         <p>Plate No. {{user.motorist.vehicle_information_plate_number}} • <span>Type {{user.motorist.vehicle_information_vehicle_type}}</span> • {{user.motorist.vehicle_information_model_year}}</p>
       </div>
     </div>
-    <app-map [onlineusers]="onlineusers" [markers]="safezones" [posts]="posts"></app-map>
+    <app-map [onlineusers]="onlineusers" [markers]="safezones" [posts]="posts" [selecteduser]="selecteduser"></app-map>
   </section>
 </main>

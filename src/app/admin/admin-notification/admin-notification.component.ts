@@ -8,8 +8,10 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 })
 export class AdminNotificationComponent implements OnInit {
   safezones: FirebaseListObservable<any>;
-  emergencies: FirebaseListObservable<any>;
-  announcements: FirebaseListObservable<any>;
+  closedEmergencies: any;
+  emergencies: any;
+  announcements: any;
+  aText: string;
   constructor(af: AngularFire) {
       this.safezones = af.database.list('/users', {
         query: {
@@ -19,24 +21,46 @@ export class AdminNotificationComponent implements OnInit {
         }
       });
 
-      this.emergencies = af.database.list('/emergencies');
+      this.emergencies = af.database.list('/emergencies', {
+        query: {
+          orderByChild: 'status',
+          equalTo: 'pending'
+        }
+      }).map( (arr) => { return arr.reverse(); } );
 
-      this.announcements = af.database.list('/announcements');
-      // TODO Add form for announcements
+      this.closedEmergencies = af.database.list('/emergencies', {
+        query: {
+          orderByChild: 'status',
+          equalTo: 'closed'
+        }
+      }).map( (arr) => { return arr.reverse(); } );
+
+      this.announcements = af.database.list('/announcements').map( (arr) => { return arr.reverse(); } );
       // TODO Add map modal for emergencies
-
-
   }
 
   ngOnInit() {
   }
 
-  submitAnnouncement(text: string){
+  submitAnnouncement() {
     let announcement = {
-      message: text,
+      message: this.aText,
       timestamp: Date.now()
-    }
+    };
     this.announcements.push(announcement);
+    this.aText = '';
+  }
+
+  removeAnnouncement(announcement: any) {
+    this.announcements.remove(announcement.$key);
+  }
+
+  removeEmergency(emergency: any) {
+    this.emergencies.remove(emergency.$key);
+  }
+
+  respondEmergency(emergency: any) {
+    this.emergencies.update(emergency.$key, {status: 'closed'});
   }
 
 }
