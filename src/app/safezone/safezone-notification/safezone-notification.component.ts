@@ -8,19 +8,30 @@ import { UserService } from '../../user.service';
   styleUrls: ['./safezone-notification.component.scss']
 })
 export class SafezoneNotificationComponent implements OnInit {
-  emergencies: FirebaseListObservable<any>;
+  emergencies: any;
+  closedEmergencies: any;
   constructor(af: AngularFire, userService: UserService) {
     console.log(userService.getServiceType());
-      this.emergencies = af.database.list('/emergencies', {
+       this.emergencies = af.database.list('/emergencies', {
         query: {
-          orderByChild: 'safezoneType',
-          equalTo: userService.getServiceType(),
-          limitToLast: 10
+          orderByChild: 'status',
+          equalTo: 'pending'
         }
-      });
+      }).map( (arr) => { return arr.reverse(); } );
+
+      this.closedEmergencies = af.database.list('/emergencies', {
+        query: {
+          orderByChild: 'status',
+          equalTo: 'closed'
+        }
+      }).map( (arr) => { return arr.reverse(); } );
   }
 
   ngOnInit() {
+  }
+
+  respondEmergency(emergency: any) {
+    this.emergencies.update(emergency.$key, {status: 'closed'});
   }
 
 }

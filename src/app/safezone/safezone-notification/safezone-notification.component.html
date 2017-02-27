@@ -4,8 +4,31 @@
     <h2>
       Emergency
     </h2>
+    <h3>
+      Pending:
+    </h3>
     <div class="notification" *ngFor="let emergency of emergencies | async">
-      <span><strong>{{emergency.description}}</strong> {{emergency.email}}</span>
+      <span><strong>{{emergency.description}}</strong></span><br>
+      <span>{{emergency.email}}</span>
+        <h6>{{emergency.timestamp | date: 'y MMMM d h:mm a'}}</h6>
+      <div class="action">
+        <button name="button" (click)="respondEmergency(emergency)"><i class="check circle icon"></i></button>
+        <!--<button name="button" (click)="removeEmergency(emergency)"><i class="remove circle icon"></i></button>-->
+      </div>
     </div>
+
+    <h3>
+      Closed:
+    </h3>
+    <div class="notification emergency" *ngFor="let emergency of closedEmergencies | async">
+      <span><strong>{{emergency.description}}</strong></span><br>
+      <span>{{emergency.email}}</span>
+        <h6>{{emergency.timestamp | date: 'y MMMM d h:mm a'}}</h6>
+      <div class="action">
+        <!--<button name="button" (click)="respondEmergency(emergency)"><i class="check circle icon"></i></button>-->
+        <button name="button" (click)="removeEmergency(emergency)"><i class="remove circle icon"></i></button>
+      </div>
+    </div>
+
   </section>
 </main>

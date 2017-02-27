@@ -10,8 +10,10 @@ export class AdminNotificationComponent implements OnInit {
   safezones: FirebaseListObservable<any>;
   closedEmergencies: any;
   emergencies: any;
+  selectedEmergency: any;
   announcements: any;
   aText: string;
+  isLocationModalOpen: boolean = false;
   constructor(af: AngularFire) {
       this.safezones = af.database.list('/users', {
         query: {
@@ -37,6 +39,14 @@ export class AdminNotificationComponent implements OnInit {
 
       this.announcements = af.database.list('/announcements').map( (arr) => { return arr.reverse(); } );
       // TODO Add map modal for emergencies
+  }
+
+  openLocationModal(emergency: any) {
+    this.isLocationModalOpen = !this.isLocationModalOpen;
+    this.selectedEmergency = emergency;
+    setTimeout(function(){
+      window.dispatchEvent(new Event('resize'));
+    }, 0.5);
   }
 
   ngOnInit() {

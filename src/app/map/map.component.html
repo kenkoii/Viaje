@@ -45,6 +45,15 @@
 
   </sebm-google-map> -->
 
-  <sebm-google-map *ngIf="!markers && !onlineusers" [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
+  <sebm-google-map *ngIf="!markers && !onlineusers && !emergency" [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
+  </sebm-google-map>
+
+  <sebm-google-map *ngIf="emergency" [latitude]="emergency.latitude" [longitude]="emergency.latitude" [zoom]="15">
+      <sebm-google-map-marker [latitude]="emergency.latitude" [longitude]="emergency.latitude" [visible]="true" [iconUrl]="getIcon('warning')">
+      <!--<sebm-google-map-info-window>
+        <h2>{{item.shop_name}}</h2>
+        <p>{{item.contact_number}} • <span>{{item.address.address}}</span></p>
+      </sebm-google-map-info-window>-->
+    </sebm-google-map-marker>
   </sebm-google-map>
 </div>

@@ -42,6 +42,9 @@ main{
           background: $white;
           border-radius: 9px;
           border-bottom: 1px solid rgba(0,0,0,0.1);
+          position: absolute;
+          top: 0;
+          left: 0;
           &::after{
             content: "";
             clear: both;
@@ -61,8 +64,8 @@ main{
           }
         }
         .posts{
-          padding: 10px;
-          height: 80%;
+          padding: 280px 10px 10px 10px;
+          height: calc(100vh - 67px);
           overflow-y: auto;
           .motorist-post{
             @include animate-slide-up(0px);
@@ -71,6 +74,11 @@ main{
             border-radius: 9px;
             background: $white;
             border-bottom: 1px solid rgba(0,0,0,0.05);
+            &::after{ 
+              content: " ";
+              display: block; 
+              clear: both; 
+            }
             img{
               height: 100px;
             }

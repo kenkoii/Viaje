@@ -13,6 +13,10 @@ main{
     .prof-card{
       width: 1024px;
       margin: 0 auto;
+      span{
+        font-size: 18px;
+        color: rgba(0,0,0,0.2);
+      }
       h1{
         color: $emerald;
       }

@@ -4,6 +4,7 @@ import { AngularFire } from 'angularfire2';
 import { Safezone } from '../../../models/safezone.model';
 
 declare var swal: any;
+declare var google: any;
 @Component({
   selector: 'app-safezone-form',
   templateUrl: './safezone-form.component.html',
@@ -24,6 +25,9 @@ export class SafezoneFormComponent implements OnInit {
 
   openLocationModal(){
     this.isLocationModalOpen = !this.isLocationModalOpen;
+    setTimeout(function(){
+      window.dispatchEvent(new Event("resize"));
+    }, 0.5);
   }
 
   getAddress(place:Object) {

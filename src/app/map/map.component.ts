@@ -28,6 +28,7 @@ export class MapComponent implements OnInit, OnChanges {
   @Input() onlineusers: any;
   @Input() posts: any;
   @Input() selecteduser: any;
+  @Input() emergency: any;
   @Output() mapClick = new EventEmitter();
   private heatmap: any;
   private formText: any;
