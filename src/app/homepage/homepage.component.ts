@@ -19,7 +19,7 @@ export class HomepageComponent implements OnInit {
   private onlineusers: FirebaseListObservable<any>;
   posts: FirebaseListObservable<any>;
   constructor(private af: AngularFire, private userService: UserService, @Inject(FirebaseApp) firebaseApp: any) {
-    let user = JSON.parse(localStorage.getItem('user'));
+    let user = JSON.parse(localStorage.getItem('user')) || null;
     this.storageRef = firebaseApp.storage().ref();
     this.role = localStorage.getItem('role');
     this.onlineusers = af.database.list('/online_users');
@@ -27,7 +27,7 @@ export class HomepageComponent implements OnInit {
     this.ownadvertisements = this.af.database.list('/advertisements', {
       query: {
         orderByChild: 'username',
-        equalTo: user.username
+        equalTo: user?user.username:null
       }
     }).map((arr) => {return arr.reverse(); }) as FirebaseListObservable<any[]>;
     this.posts = this.af.database.list('/posts').map((arr) => {return arr.reverse(); }) as FirebaseListObservable<any[]>;
