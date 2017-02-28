@@ -32,6 +32,19 @@ header{
         color: $nephritis;
         transition: all 0.3s ease-in-out;
         letter-spacing: 3px;
+        position: relative;
+        .notif{
+          position: absolute;
+          top: 8px;
+          right: -3px;
+          display: block;
+          padding: 5px;
+          background: $alizarin;
+          color: $white;
+          border-radius: 3px;
+          font-size: 10px;
+          text-align: center;
+        }
         span{
           padding: 5px 0px;
         }
@@ -58,7 +71,7 @@ header{
 
 *.icon-blue {color: #0088cc}
 *.icon-grey {color: grey}
-i {   
+i {
     width:100px;
     text-align:center;
     vertical-align:middle;
