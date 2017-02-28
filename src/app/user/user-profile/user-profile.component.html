@@ -4,7 +4,7 @@
 			<div *ngIf="user.type == 'admin'">
 				<h1><span>Name: </span>{{user.given_name}} {{user.family_name}}</h1>
 				<h3><span>Email: </span>{{user.email_address}}</h3>
-				<h3><span>Contact #: </span> {{user.contact_number}}</h3>
+				<h3><span>Contact #: </span> {{user.contact_number}}</h3>]
 				<h3><span>Address: </span>{{user.address}}</h3>
 			</div>
 			<div *ngIf="user.type == 'motorist'">
@@ -25,7 +25,7 @@
 				<h3><span>Address: </span>{{user.address.address}}</h3>
 				<h3><span>Contact: </span> {{user.contact_number}}</h3>
 			</div>
-			<button (click)="onLogout()">Logout</button>	
+			<button (click)="onLogout()">Logout</button>
 		</div>
 	</section>
 </main>
