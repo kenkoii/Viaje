@@ -14,7 +14,7 @@
 		</ul>
 		<ul class="" *ngIf="userService.getRole()=='safezone'" [class.active]="!isMenuClose">
 			<!--<li routerLink="/admin/safezones"> <span>SAFEZONES</span></li>-->
-			<li routerLink="/safezone/notifications"> <span>{{(userService.emergencies | async)?.length}} NOTIFICATIONS</span></li>
+			<li routerLink="/safezone/notifications"> <span class="notif" *ngIf="(userService.emergencies | async)?.length">{{(userService.emergencies | async)?.length}}</span><span>NOTIFICATIONS</span></li>
 			<li routerLink="/user"><span> PROFILE </span></li>
 		</ul>
 		<ul class="" *ngIf="userService.getRole()=='motorist'" [class.active]="!isMenuClose">

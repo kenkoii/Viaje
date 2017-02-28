@@ -10,6 +10,8 @@ import { UserService } from '../../user.service';
 export class SafezoneNotificationComponent implements OnInit {
   emergencies: any;
   closedEmergencies: any;
+  isLocationModalOpen: boolean = false;
+  selectedEmergency: any;
   constructor(af: AngularFire, userService: UserService) {
     console.log(userService.getServiceType());
        this.emergencies = af.database.list('/emergencies', {
@@ -28,6 +30,15 @@ export class SafezoneNotificationComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  openLocationModal(emergency: any) {
+    console.log(emergency)
+    this.isLocationModalOpen = !this.isLocationModalOpen;
+    this.selectedEmergency = emergency;
+    setTimeout(function(){
+      window.dispatchEvent(new Event('resize'));
+    }, 0.5);
   }
 
   respondEmergency(emergency: any) {

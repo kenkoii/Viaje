@@ -1,4 +1,4 @@
-<ul class="action-bar">
+<ul class="action-bar" *ngIf="onlineusers || markers || posts">
   <li>
     <button name="button" (click)="toggleSafezones()">Safe Zones</button>
   </li>

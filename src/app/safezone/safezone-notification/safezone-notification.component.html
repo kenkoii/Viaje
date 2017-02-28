@@ -12,6 +12,7 @@
       <span>{{emergency.email}}</span>
         <h6>{{emergency.timestamp | date: 'y MMMM d h:mm a'}}</h6>
       <div class="action">
+        <button name="button" (click)="openLocationModal(emergency)"><i class="unhide icon"></i></button>
         <button name="button" (click)="respondEmergency(emergency)"><i class="check circle icon"></i></button>
         <!--<button name="button" (click)="removeEmergency(emergency)"><i class="remove circle icon"></i></button>-->
       </div>
@@ -32,3 +33,10 @@
 
   </section>
 </main>
+
+<div class="modal" [class.active]="isLocationModalOpen">
+  <div class="container">
+    <button (click)="openLocationModal()" name="button"> close </button>
+    <app-map *ngIf="isLocationModalOpen" [emergency]="selectedEmergency"></app-map>
+  </div>
+</div>
