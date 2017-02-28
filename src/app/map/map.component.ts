@@ -34,6 +34,7 @@ export class MapComponent implements OnInit, OnChanges {
   private formText: any;
   private safezoneVisibility: boolean = true;
   private postsVisibility: boolean = true;
+  private onlineusersVisibility: boolean = true;
   private _map: any;
   constructor(mapsAPILoader: MapsAPILoader, private af: AngularFire) {
 
@@ -48,12 +49,16 @@ export class MapComponent implements OnInit, OnChanges {
     console.log(this.emergency);
   }
 
-  toggleSafezones(){
+  toggleSafezones() {
     this.safezoneVisibility = !this.safezoneVisibility;
   }
 
-  togglePosts(){
+  togglePosts() {
     this.postsVisibility = !this.postsVisibility;
+  }
+ 
+   toggleOnlineUsers() {
+    this.onlineusersVisibility = !this.onlineusersVisibility;
   }
 
   submitComment(post: any, text: string){
@@ -68,6 +73,22 @@ export class MapComponent implements OnInit, OnChanges {
     };
     //Push post to firebase.
     let postComment = this.af.database.list('/posts/'+post.$key+'/comments');
+    postComment.push(comment);
+    this.formText = "";
+  }
+
+  submitEmergencyComment(emergency: any, text: string){
+    let user = JSON.parse(localStorage.getItem('user'));
+    delete user.$key;
+    console.log(user);
+    console.log(emergency);
+    let comment = {
+         timestamp: Date.now(),
+         user: user,
+         text: text
+    };
+    //Push post to firebase.
+    let postComment = this.af.database.list('/emergencies/'+emergency.$key+'/comments');
     postComment.push(comment);
     this.formText = "";
   }

@@ -25,33 +25,67 @@
 				<h3><span>Address: </span>{{user.address.address}}</h3>
 				<h3><span>Contact #: </span> {{user.contact_number}}</h3>
 			</div>
-			<!--<button (click)="edit()">Edit Profile</button>-->
+			<button (click)="edit()">Edit Profile</button>
 			<button (click)="onLogout()">Logout</button>
 		</div>
 		<div class="prof-card">
+			<div class="motorist-container" *ngIf="editProfile && user.type == 'admin'">
+				<h1>Edit Admin</h1>
+				<!-- Motorist - Sign up Form -->
+				<form #f="ngForm" (ngSubmit)="editUser(f.value)">
+					<h3>Personal Information: </h3>
+					<!--<input type="text" name="username" value="" placeholder="Username" [(ngModel)]="motorist.username"> 
+					<input type="password" name="password" value="" placeholder="Password" [(ngModel)]="motorist.password"> -->
+					<!--<input type="email" name="email_address" [(ngModel)]="user.email_address" placeholder="Email Address"> -->
+					<input type="text" name="family_name" [(ngModel)]="user.family_name" placeholder="Family Name"> 
+					<input type="text" name="given_name" [(ngModel)]="user.given_name" placeholder="Given Name"> 
+					<input type="text" name="contact_number" [(ngModel)]="user.contact_number" placeholder="Contact Number"> 
+					<input type="text" name="address" [(ngModel)]="user.address" placeholder="Address"> 
+
+					<button (click)="edit()">Cancel</button>
+					<button type="submit">Save</button>
+				</form>
+			</div>
+			<div class="motorist-container" *ngIf="editProfile && user.type == 'safezone'">
+				<h1>Edit Admin</h1>
+				<!-- Motorist - Sign up Form -->
+				<form #f="ngForm" (ngSubmit)="editUser(f.value)">
+					<h3>Personal Information: </h3>
+					<!--<input type="text" name="username" value="" placeholder="Username" [(ngModel)]="motorist.username"> 
+					<input type="password" name="password" value="" placeholder="Password" [(ngModel)]="motorist.password"> -->
+					<!--<input type="email" name="email_address" [(ngModel)]="user.email_address" placeholder="Email Address"> -->
+					<input type="text" name="owner" [(ngModel)]="user.owner" placeholder="Family Name"> 
+					<input type="text" name="shop_name" [(ngModel)]="user.shop_name" placeholder="Given Name"> 
+					<input type="text" name="contact_number" [(ngModel)]="user.contact_number" placeholder="Contact Number"> 
+					<input type="text" name="address" [(ngModel)]="user.address.address" placeholder="Address"> 
+
+					<button (click)="edit()">Cancel</button>
+					<button type="submit">Save</button>
+				</form>
+			</div>
 			<div class="motorist-container" *ngIf="editProfile && user.type == 'motorist'">
-			<h1>Edit Motorist</h1>
-			<!-- Motorist - Sign up Form -->
-			<form class="">
-				<h3>Personal Information: </h3>
-				<input type="text" name="username" value="" placeholder="Username" [(ngModel)]="motorist.username"> 
-				<input type="password" name="password" value="" placeholder="Password" [(ngModel)]="motorist.password"> 
-				<input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="motorist.email_address"> 
-				<input type="text" name="family_name" value="" placeholder="Family Name" [(ngModel)]="motorist.family_name"> 
-				<input type="text" name="given_name" value="" placeholder="Given Name" [(ngModel)]="motorist.given_name"> 
-				<input type="text" name="contact_number" value="" placeholder="Contact Number" [(ngModel)]="motorist.contact_number"> 
-				<input type="text" name="address" value="" placeholder="Address" [(ngModel)]="motorist.address"> 
-				<input type="text" name="license_number" value="" placeholder="License Number" [(ngModel)]="motorist.license_number"> 
+				<h1>Edit Motorist</h1>
+				<!-- Motorist - Sign up Form -->
+				<form #f="ngForm" (ngSubmit)="editUser(f.value)">
+					<h3>Personal Information: </h3>
+					<!--<input type="text" name="username" value="" placeholder="Username" [(ngModel)]="motorist.username"> 
+					<input type="password" name="password" value="" placeholder="Password" [(ngModel)]="motorist.password"> -->
+					<!--<input type="email" name="email_address" [(ngModel)]="user.email_address" placeholder="Email Address"> -->
+					<input type="text" name="family_name" [(ngModel)]="user.family_name" placeholder="Family Name"> 
+					<input type="text" name="given_name" [(ngModel)]="user.given_name" placeholder="Given Name"> 
+					<input type="text" name="contact_number" [(ngModel)]="user.contact_number" placeholder="Contact Number"> 
+					<input type="text" name="address" [(ngModel)]="user.address" placeholder="Address"> 
+					<input type="text" name="license_number" [(ngModel)]="user.license_number" placeholder="License Number"> 
 
-				<h3>Vehicle Information: </h3>
-				<input type="text" name="vehicle_type" value="" placeholder="Vehicle Type" [(ngModel)]="motorist.vehicle_information_vehicle_type"> 
-				<input type="text" name="vehicle_information" value="" placeholder="Model Year" [(ngModel)]="motorist.vehicle_information_model_year"> 
-				<input type="text" name="vehicle_plate_number" value="" placeholder="Plate Number" [(ngModel)]="motorist.vehicle_information_plate_number"> 
+					<h3>Vehicle Information: </h3>
+					<input type="text" name="vehicle_type" [(ngModel)]="user.vehicle_information_vehicle_type" placeholder="Vehicle Type"> 
+					<input type="text" name="vehicle_information" [(ngModel)]="user.vehicle_information_model_year" placeholder="Model Year"> 
+					<input type="text" name="vehicle_plate_number" [(ngModel)]="user.vehicle_information_plate_number" placeholder="Plate Number"> 
 
-				<button (click)="edit()">Cancel</button>
-				<button (click)="onSignup()" type="submit">Save</button>
-			</form>
-		</div>
+					<button (click)="edit()">Cancel</button>
+					<button type="submit">Save</button>
+				</form>
+			</div>
 		</div>
 	</section>
 </main>

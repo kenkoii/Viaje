@@ -8,20 +8,30 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 })
 export class CommentComponent implements OnInit, OnChanges {
   @Input() post: any;
+  @Input() emergency: any;
   comments: any;
   constructor(private af: AngularFire) {
   }
 
   ngOnChanges() {
-    this.af.database.list('/posts/'+this.post+'/comments').subscribe(data=>{
-      this.comments = data;
-    });
+    if (this.post) {
+        this.af.database.list('/posts/' + this.post + '/comments').subscribe(data => {
+          this.comments = data;
+        });
+    }
+    console.log(this.emergency);
+    if (this.emergency) {
+      this.af.database.list('/emergencies/' + this.emergency + '/comments').subscribe(data => {
+        this.comments = data;
+        console.log(this.comments);
+      });
+    }
   }
 
   ngOnInit() {
   }
 
-  convertArray(val){
+  convertArray(val) {
     console.log(Array.from(val));
     return Array.from(val);
   }

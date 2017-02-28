@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms/src/directives';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 import {Router} from '@angular/router';
@@ -19,6 +20,13 @@ export class UserProfileComponent implements OnInit {
 
   edit() {
     this.editProfile = !this.editProfile;
+  }
+
+  editUser(form: any) {
+    console.log(form);
+    console.log(form['email_address']);
+    localStorage.setItem('user', JSON.stringify(this.user));
+    this.edit();
   }
 
   onLogout() {
