@@ -1,6 +1,6 @@
 <main>
 	<section>
-		<div class="prof-card">
+		<div class="prof-card" *ngIf="!editProfile">
 			<div *ngIf="user.type == 'admin'">
 				<h1><span>Name: </span>{{user.given_name}} {{user.family_name}}</h1>
 				<h3><span>Email: </span>{{user.email_address}}</h3>
@@ -23,9 +23,35 @@
 				<h3><span>Service Type: </span>{{user.service_information_type}}</h3>
 				<h3><span>Email: </span>{{user.email_address}}</h3>
 				<h3><span>Address: </span>{{user.address.address}}</h3>
-				<h3><span>Contactn #: </span> {{user.contact_number}}</h3>
+				<h3><span>Contact #: </span> {{user.contact_number}}</h3>
 			</div>
+			<!--<button (click)="edit()">Edit Profile</button>-->
 			<button (click)="onLogout()">Logout</button>
+		</div>
+		<div class="prof-card">
+			<div class="motorist-container" *ngIf="editProfile && user.type == 'motorist'">
+			<h1>Edit Motorist</h1>
+			<!-- Motorist - Sign up Form -->
+			<form class="">
+				<h3>Personal Information: </h3>
+				<input type="text" name="username" value="" placeholder="Username" [(ngModel)]="motorist.username"> 
+				<input type="password" name="password" value="" placeholder="Password" [(ngModel)]="motorist.password"> 
+				<input type="email" name="email_address" value="" placeholder="Email Address" [(ngModel)]="motorist.email_address"> 
+				<input type="text" name="family_name" value="" placeholder="Family Name" [(ngModel)]="motorist.family_name"> 
+				<input type="text" name="given_name" value="" placeholder="Given Name" [(ngModel)]="motorist.given_name"> 
+				<input type="text" name="contact_number" value="" placeholder="Contact Number" [(ngModel)]="motorist.contact_number"> 
+				<input type="text" name="address" value="" placeholder="Address" [(ngModel)]="motorist.address"> 
+				<input type="text" name="license_number" value="" placeholder="License Number" [(ngModel)]="motorist.license_number"> 
+
+				<h3>Vehicle Information: </h3>
+				<input type="text" name="vehicle_type" value="" placeholder="Vehicle Type" [(ngModel)]="motorist.vehicle_information_vehicle_type"> 
+				<input type="text" name="vehicle_information" value="" placeholder="Model Year" [(ngModel)]="motorist.vehicle_information_model_year"> 
+				<input type="text" name="vehicle_plate_number" value="" placeholder="Plate Number" [(ngModel)]="motorist.vehicle_information_plate_number"> 
+
+				<button (click)="edit()">Cancel</button>
+				<button (click)="onSignup()" type="submit">Save</button>
+			</form>
+		</div>
 		</div>
 	</section>
 </main>

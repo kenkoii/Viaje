@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
   private user: any;
+  private editProfile: boolean = false;
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
@@ -16,7 +17,11 @@ export class UserProfileComponent implements OnInit {
     console.log('hello user is: ' + this.user);
   }
 
-  onLogout(){
+  edit() {
+    this.editProfile = !this.editProfile;
+  }
+
+  onLogout() {
     this.userService.userLogout();
     this.router.navigate(['login']);
   }
