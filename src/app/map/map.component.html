@@ -48,12 +48,17 @@
   <sebm-google-map *ngIf="!markers && !onlineusers && !emergency" [latitude]="10.3157" [longitude]="123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
   </sebm-google-map>
 
-  <sebm-google-map *ngIf="emergency" [latitude]="emergency.latitude" [longitude]="emergency.latitude" [zoom]="15">
-      <sebm-google-map-marker [latitude]="emergency.latitude" [longitude]="emergency.latitude" [visible]="true" [iconUrl]="getIcon('warning')">
-      <!--<sebm-google-map-info-window>
-        <h2>{{item.shop_name}}</h2>
-        <p>{{item.contact_number}} • <span>{{item.address.address}}</span></p>
-      </sebm-google-map-info-window>-->
+  <sebm-google-map *ngIf="emergency" [latitude]="emergency.latitude" [longitude]="emergency.longitude" [zoom]="15">
+      <sebm-google-map-marker [latitude]="emergency.latitude" [longitude]="emergency.longitude" [visible]="true" [iconUrl]="getIcon('warning')">
+      <sebm-google-map-info-window>
+        <div class="motorist-post">
+          <h5>{{emergency.email}} • <span>{{emergency.timestamp | date: 'h:mm a'}}</span></h5>
+          <p>{{emergency.description}}</p>
+            <!--<app-comment [post]="post.$key"></app-comment>
+          <input #comment type="text" placeholder="comment here">
+          <button type="button" (click)="submitComment(post,comment.value)">Submit</button>-->
+        </div>
+      </sebm-google-map-info-window>
     </sebm-google-map-marker>
   </sebm-google-map>
 </div>

@@ -42,6 +42,7 @@ export class AdminNotificationComponent implements OnInit {
   }
 
   openLocationModal(emergency: any) {
+    console.log(emergency)
     this.isLocationModalOpen = !this.isLocationModalOpen;
     this.selectedEmergency = emergency;
     setTimeout(function(){

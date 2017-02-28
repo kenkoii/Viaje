@@ -45,7 +45,7 @@ export class MapComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     console.log(this.onlineusers);
-
+    console.log(this.emergency);
   }
 
   toggleSafezones(){

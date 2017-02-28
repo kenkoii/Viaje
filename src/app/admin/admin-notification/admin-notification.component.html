@@ -37,7 +37,7 @@
         <h3>
           Pending:
         </h3>
-        <div (click)="openLocationModal()" class="notification emergency" *ngFor="let emergency of emergencies | async">
+        <div (click)="openLocationModal(emergency)" class="notification emergency" *ngFor="let emergency of emergencies | async">
           <span><strong>{{emergency.description}}</strong></span><br>
           <span>{{emergency.email}}</span>
            <h6>{{emergency.timestamp | date: 'y MMMM d h:mm a'}}</h6>
@@ -71,6 +71,6 @@
 <div class="modal" [class.active]="isLocationModalOpen">
   <div class="container">
     <button (click)="openLocationModal()" name="button"> close </button>
-    <app-map [emergency]="selectedEmergency" (mapClick)="mapClicked($event)"></app-map>
+    <app-map *ngIf="isLocationModalOpen" [emergency]="selectedEmergency"></app-map>
   </div>
 </div>
