@@ -9,7 +9,7 @@
         <button (click)="submitAdvertisement(adText, adTitle)" name="button">Post</button>
       </form>
       <!--TODO: Adjust View and add Header/Title-->
-      <div class="posts">
+      <div class="posts safezone-post">
         <div class="motorist-post" *ngFor="let advertisement of ownadvertisements | async">
           <h5>{{advertisement.user.shop_name}} • <span>{{advertisement.timestamp | date: 'h:mm a'}}</span></h5>
           <img [src]="advertisement.img">
