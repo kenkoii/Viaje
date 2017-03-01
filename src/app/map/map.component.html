@@ -14,7 +14,7 @@
 </ul>
 <div>
   <sebm-google-map *ngIf="onlineusers || markers || posts" [latitude]="selecteduser?selecteduser.latitude:10.3157" [longitude]="selecteduser?selecteduser.longitude:123.8854" [zoom]="15" (mapClick)="mapClicked($event)">
-    <sebm-google-map-marker *ngFor="let user of onlineusers | async" [latitude]="user.latitude" [longitude]="user.longitude" [visible]="onlineusersVisibility" [iconUrl]="getIcon(user.motorist.type)">
+    <sebm-google-map-marker *ngFor="let user of onlineusers | async" [latitude]="user.latitude" [longitude]="user.longitude" [visible]="onlineusersVisibility" [iconUrl]="getIcon('motorist')">
       <sebm-google-map-info-window>
         <h2>{{user.motorist.username}} <span>{{user.motorist.given_name + ' ' + user.motorist.family_name}}</span></h2>
         <p>{{user.motorist.contact_number}} • <span>{{user.motorist.address}}</span></p>
